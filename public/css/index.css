@@ -1,0 +1,132 @@
+/*= HOME - CONTENT| LARGE/DESKTOP
+--------------------------------------------------------*/
+/* banner style for large size devices
+ --------------------------------------------------------*/
+ .banner-lg{
+    background: url('../img/index/banner-1.jpg') 50%  -35% no-repeat fixed;
+    width: 100%;
+    height: 650px;
+    text-align: center;
+    /*background-position: right; */
+    background-size: cover;
+}
+
+.yellow-card{
+    background-color: #F0E442;
+    margin-top: -50px;
+}
+
+h1.main-text{
+    font-family: 'Dr Sugiyama', cursive !important;
+	font-weight: 800;
+	font-size: 4rem;
+    text-align: center;
+    color: #42004E;
+}
+
+.card-img{
+    padding: 0px;
+}
+
+/* testimonials
+-------------------------------------------------*/
+.testimonials {
+	background-color: #42004E;
+	color: #EEEEEE;
+}
+
+h2.yellow-bg{
+    background-color: #F0E442;
+    color: #42004E;
+    clip-path: polygon(0 0, 100% 0%, 90% 100%, 0% 100%);
+    text-align: center;
+	font-weight: 700;
+    font-size: 2.3rem;
+    font-style: italic;
+    padding: 10px;
+    width: 90%;
+}
+
+.testimonials-box{
+    width: 50%;
+    margin: 20px auto;
+    font-weight: 300;
+    font-size: 1.3rem;
+    line-height: 2;
+
+}
+
+p.testimonials-text{
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+	font-weight: 200;
+	font-size: 1.2rem;
+}
+
+.quote-text{
+    font-weight: 500;
+    font-size: 1rem;
+    color: #fff;
+}
+
+/* Carousel for testimonials
+-------------------------------------------------*/
+/* Slideshow container */
+.slideshow-container {
+max-width: 1000px;
+position: relative;
+margin: auto;
+}
+
+/* Next & previous buttons */
+.prev-test, .next-test {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -5px;
+    color: #42004E;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: #F0E442;
+}
+
+/* Position the "next button" to the right */
+.next-test {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev-test:hover, .next-test:hover {
+    background-color: #F1EFEF;
+    color: #230D0C;
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+
+
+
+  
