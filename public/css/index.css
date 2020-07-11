@@ -32,7 +32,8 @@ h1.main-text{
 -------------------------------------------------*/
 .testimonials {
 	background-color: #42004E;
-	color: #EEEEEE;
+    color: #EEEEEE;
+    height: 600px;
 }
 
 h2.yellow-bg{
@@ -92,7 +93,6 @@ margin: auto;
     text-align: center;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
-    user-select: none;
     background-color: #F0E442;
 }
 
@@ -124,6 +124,101 @@ margin: auto;
 @keyframes fade {
     from {opacity: .4} 
     to {opacity: 1}
+}
+
+
+/*=  HOME - CONTENT | SMALL/MOBILE
+--------------------------------------------------------*/
+
+@media screen and (max-width: 1023px){
+
+    /* Alert message box 
+     --------------------------------------------------------*/
+    .cookies-alert {
+        padding: 30px;
+        background-color: #a43b3b; 
+        color: #FFF;
+    }
+
+    /* The close button */
+    .closebtn {
+        margin-left: 15px;
+        color: #FFF;
+        font-weight: 400;
+        font-size: 5rem;
+        float: right;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+
+    /* banner style for small size devices
+    --------------------------------------------------------*/
+    .banner-lg{
+        display: none;
+    }
+
+    .yellow-card{
+        background-color: #F0E442;
+        margin-top: 350px;
+    }
+
+    h1.main-text{
+        font-family: 'Dr Sugiyama', cursive !important;
+        font-weight: 800;
+        font-size: 3rem;
+        text-align: center;
+        color: #42004E;
+    }
+
+    .card-img{
+        padding: 0px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+        /* testimonials
+    -------------------------------------------------*/
+    .testimonials {
+        background-color: #42004E;
+        color: #EEEEEE;
+        height: 500px;
+    }
+
+    h2.yellow-bg{
+        background-color: #F0E442;
+        color: #42004E;
+        clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.8rem;
+        font-style: italic;
+        padding: 5px;
+        width: 90%;
+    }
+
+    .testimonials-box{
+        width: 50%;
+        margin: 20px auto;
+        font-weight: 300;
+        font-size: 1rem;
+        line-height: 2;
+
+    }
+
+    p.testimonials-text{
+        font-family: 'Montserrat', sans-serif;
+        color: #fff;
+        font-weight: 200;
+        font-size: .9rem;
+    }
+
+    .quote-text{
+        font-weight: 500;
+        font-size: .7rem;
+        color: #fff;
+    }
 }
 
 

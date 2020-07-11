@@ -1,161 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><%= title %></title>
-        <!-- Style sheets -->
-        <link  rel="stylesheet" type="text/css" href="/css/main.css">
-        <link  rel="stylesheet" type="text/css" href="/css/index.css">
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Dr+Sugiyama&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    </head>
-</head>
-<body>
-    <header>
-        <div class="header-1">
-            <div class="col-2 right mt-1 ">
-                <button id="loginbtn" class="headbutton mr-1" type="button" onclick ="location.href='/login'"> 
-                    Sign in
-                </button>
-            </div>
-        </div>
-        <!-- navigation large & medium devices -->
-    	<div class="row menu-large">
-    		<!-- logo -->
-	        <div class="col-3">
-                <a href="/" class="">
-                    <img src="/img/index/logo.png" alt="Oriental Dance logo" class="img-logo">
-                </a>
-            </div>
-	        <!-- navigation links -->
-	        <div class="col-7 right">
-	        	<!-- navigation large & medium devices -->
-	        	<nav class="menu-large flex-container">
-	        		<li>
-	        			<a href="/" class="nav-link active">Home</a>
-	        		</li>
-	        		<li>
-	        			<a href="/about_us" class="nav-link ">About Us</a>
-                    </li>
-                    <li>
-	        			<a href="/classes" class="nav-link">Our Classes</a>
-                    </li>
-                    <li>
-	        			<a href="/studios" class="nav-link">Our Studios</a>
-                    </li>
-                    <li>
-	        			<a href="/contact_us" class="nav-link">Contact Us</a>
-	        		</li>
-	        	</nav>
-	        	 <!-- navigation large & medium devices --> 
-	        </div>
-	        <!-- navigation links -->
-    	</div>
-        <!-- navigation large & medium devices -->
-    </header>
-    <!-- main content -->
-    <main class="">
-        <!-- banner large & medium devices-->
-        <section class="banner-lg row" >
-        </section>
-        <!-- banner large & medium devices-->
-        <!-- classes & studios -->
-        <section id="" class="mb-1">
-            <div class="container">
-                <div class="col-3 col-s-12 yellow-card mr-1">
-                    <h1 class="main-text">
-                        Discover your unique path in Oriental Dance
-                    </h1>
+<%- include('partials/head.ejs') %>
+    <body>
+        <%- include('partials/header.ejs') %>
+        <!-- main content -->
+        <main class="">
+            <!-- banner large & medium devices-->
+            <section class="row">
+                <!-- banner large & medium devices-->
+                <div class="banner-lg">
                 </div>
-                <div class="col-3 col-s-12 mt-2 card-img mr-1">
-                    <img src="/img/index/classes.jpg" alt="Our classes" class="img">
-                    <button id="" class="large-btn" type="button" onclick ="location.href=' '"> 
-                        Book a Class
-                    </button>
-                </div>  
-                <div class="col-3 col-s-12 mt-2 card-img">
-                    <img src="/img/index/studios.jpg" alt="Our studios" class="img">
-                    <button id="" class="large-btn" type="button" onclick ="location.href=' '"> 
-                        Book a Studio
-                    </button>
-                </div> 
-           </div>
-        </section>
-        <!-- classes & studios -->
-        <!-- testimonials -->
-        <section class="testimonials mt-1">
-            <div class="pt-1">
-                <h2 class="yellow-bg text-center pt-1"> Testimonials </h2>
-            </div>
-            <div class="slideshow-container">
-                <!-- testimonial-1 -->
-                <div class="mySlides2 fade">
-                    <div class="testimonials-box">
-                        <p class="text-justify testimonials-text mt-1">
-                            <em>«Chocolate bar bear claw chupa chups gummi bears topping marzipan cheesecake candy. Pie gummies pastry cookie chocolate macaroon tootsie roll powder muffin. Jujubes icing cheesecake muffin gummies pastry.! »</em>
-                        </p>
-                        <p class="quote-text text-right mt-1">
-                            <strong>
-                                — Ann O’Brien
-                            </strong>
-                        </p>
+                <!-- banner large & medium devices-->
+                <!-- banner small devices -->
+                <div class="banner-sm nav-mobile">
+                    <img src="img/index/banner-mobile-1.jpg" alt="Nadya & Ann-Marie" class="img">
+                </div>
+            </section>
+            <!-- banner large & medium devices-->
+            <!-- classes & studios -->
+            <section id="" class="mb-1">
+                <div class="card-container">
+                    <div class="col-3 col-s-10 yellow-card mr-1">
+                        <h1 class="main-text">
+                            Discover your unique path in Oriental Dance
+                        </h1>
                     </div>
-                </div>
-                <!-- testimonial-2 -->
-                <div class="mySlides2 fade">
-                    <div class="testimonials-box">
-                        <p class="text-justify mt-1">
-                            <em>«Chocolate »</em>
-                        </p>
-                        <p class="quote-text text-right mt-1">
-                            <strong>
-                                — Ahsdosd
-                            </strong>
-                        </p>
-                    </div>
-                </div>
-                <!-- testimonial-3 -->
-                <div class="mySlides2 fade">
-                    <div class="testimonials-box">
-                        <p class="text-justify mt-1">
-                            <em>«Chocolate dfer »</em>
-                        </p>
-                        <p class="quote-text text-right mt-1">
-                            <strong>
-                                — Ahsdosd fg
-                            </strong>
-                        </p>
-                    </div>
-                </div>
-                <a class="prev-test" onclick="plusSlides(-1, 1)">&#10094;</a>
-                <a class="next-test" onclick="plusSlides(1, 1)">&#10095;</a>
+                    <div class="col-3 col-s-10 mt-2 card-img mr-1">
+                        <img src="/img/index/classes.jpg" alt="Our classes" class="img">
+                        <button id="" class="large-btn" type="button" onclick ="location.href=' '"> 
+                            Book a Class
+                        </button>
+                    </div>  
+                    <div class="col-3 col-s-10 mt-2 card-img">
+                        <img src="/img/index/studios.jpg" alt="Our studios" class="img">
+                        <button id="" class="large-btn" type="button" onclick ="location.href=' '"> 
+                            Book a Studio
+                        </button>
+                    </div> 
             </div>
-        </section>
-        <!-- testimonials section -->
-    </main>
-    <!-- main content -->
-        <!-- footer -->
-        <footer class="">
-            <!-- social media -->
-               <h2 class="">CONNECT ON SOCIAL</h2>
-               <div class="card-container">
-                   <div class="pr-1">
-                       <a href="" target="_blank" >
-                           <img src="img/linkedin.png" alt="linkedin" class="img"/>
-                       </a>
-                   </div>
-                   <div class="pr-1">
-                       <a href="" target="_blank">
-                           <img src="img/twitter.png" alt="twitter" class="img"/>
-                       </a>
-                   </div>
-               </div>
-               <!-- credits -->
-               <div class="credits container">
-                   <p class="">® 2020 Backend Helpers Limited. All rights are reserved.</p>
-               </div> 
-       </footer>
-       <!-- footer -->
-</body>
+            </section>
+            <!-- classes & studios -->
+            <!-- testimonials -->
+            <section class="testimonials mt-1">
+                <div class="pt-1">
+                    <h2 class="yellow-bg text-center pt-1"> Testimonials </h2>
+                </div>
+                <div class="slideshow-container">
+                    <!-- testimonial-1 -->
+                    <div class="mySlides2 fade">
+                        <div class="testimonials-box">
+                            <p class="text-justify testimonials-text mt-1">
+                                <em> 
+                                    “I have taken classes with Oriental Dance for about 6 months. 
+                                    As a dancer new to Dublin, I felt welcomed.  
+                                    I highly recommend their class to anyone looking to learn more about authentic Egyptian 
+                                    dance or curious to try!"
+                                </em>
+                            </p>
+                            <p class="quote-text text-right mt-1">
+                                <strong>
+                                    — Stephanie O’Brien - Student
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- testimonial-2 -->
+                    <div class="mySlides2 fade">
+                        <div class="testimonials-box">
+                            <p class="text-justify  testimonials-text mt-1">
+                                <em>"Fantastic Academy... Highly recommended!!"</em>
+                            </p>
+                            <p class="quote-text text-right mt-1">
+                                <strong>
+                                    — Ann Brennan - Student
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- testimonial-3 -->
+                    <div class="mySlides2 fade">
+                        <div class="testimonials-box">
+                            <p class="text-justify  testimonials-text mt-1">
+                                <em>
+                                    "Not only do they teach an authentic style of dance, 
+                                    but they also share information on the region and history of various dance forms. 
+                                    It's a great learning experience, as well as a great workout!"
+                                </em>
+                            </p>
+                            <p class="quote-text text-right mt-1">
+                                <strong>
+                                    --- Asmahan el Zein, Director "World of Orient" and "Tribal Festival" in Hanover, Germany
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                    <a class="prev-test" onclick="plusSlides(-1, 1)">&#10094;</a>
+                    <a class="next-test" onclick="plusSlides(1, 1)">&#10095;</a>
+                </div>
+            </section>
+            <!-- testimonials section -->
+        </main>
+        <!-- main content -->
+        <%- include('partials/footer.ejs') %>
+        <%- include('partials/end.ejs') %>
+    </body>
 </html>
