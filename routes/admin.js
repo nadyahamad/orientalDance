@@ -1,16 +1,29 @@
+const path = require('path');
+
 const express = require('express');
 
 const rootDir = require('../util/path');
 
 const router = express.Router();
 
-router.use('/add-class', (req, res, next) => {
-    res.sendFile(path.join(rootDir, 'views', 'admin.html'));
+const products = [];
+
+// /admin/add-class => GET
+router.get('/add-class', (req, res, next) => {
+  res.render('add-class', {
+    title: 'Add Class',
+    path: '/admin/add-class',
+    formsCSS: true,
+    productCSS: true,
+    activeAddProduct: true
+  });
 });
 
+// /admin/add-product => POST
 router.post('/add-class', (req, res, next) => {
-    console.log(req.body);
-    res.redirect("/");
+  products.push({ title: req.body.title });
+  res.redirect('/classes');
 });
 
-module.exports = router;
+exports.routes = router;
+exports.products = products;
