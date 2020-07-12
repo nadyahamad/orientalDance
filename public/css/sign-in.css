@@ -1,0 +1,84 @@
+/*= SIGN IN | LARGE/DESKTOP
+--------------------------------------------------------*/
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    padding: 0px;
+    background-color: #FBF2DA;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    color:  rgba(66, 0, 78,0.8);
+	font-weight: 600;
+	font-size: 1.5rem;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #F0E442;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #F0E442;
+    color: #42004E;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    background-color: #F0E442;
+    border-top: none;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0,0.4);
+    justify-content: center;
+    color: #42004E;
+  }
+
+ button.tablinks{
+    border: 1px solid rgba(0, 0, 0,0.1);
+    padding: 10px 50px;
+    width: 50%;
+    border-radius: 25px 25px 0px 0px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0,0.4);
+  }
+
+
+a.login{
+	color: #42004E;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+a.login:hover{
+	color: #7B0091;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+input.form-inputs{
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    width: 100%;
+   	border: none;
+    border-bottom: 1px solid #7B0091;
+    border-radius: 2px;
+    background-color: #FFF;
+}
+
+input.form-inputs:hover{
+    background-color: #FFF;
+    box-shadow: 1px 1px 3px #7B0091;
+    border-bottom: 1px solid #7B0091;
+}
