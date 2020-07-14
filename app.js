@@ -6,9 +6,10 @@ const path= require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const mongoConnect = require('./util/database');
+const errorController = require('./controllers/error');
 
 const app = express();
+
 
 // Set view engine to use, in this case 'ejs'
 app.set('view engine', 'ejs');
@@ -19,7 +20,7 @@ const indexRoutes = require('./routes/index');
 const sign_inRoutes = require('./routes/sign-in');
 
 
-const adminData = require('./routes/admin');
+const adminRoutes = require('./routes/admin');
 const classesRoutes = require('./routes/classes');
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -29,16 +30,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(indexRoutes);
 app.use(sign_inRoutes);
 
-app.use('/admin', adminData.routes);
+app.use('/admin', adminRoutes);
 app.use(classesRoutes);
 
 
-app.use((req, res, next) => {
-    res.status(404).render('404', {title: 'Page Not Found'});
-});
+app.use(errorController.get404);
 
-
-mongoConnect((client) => {
-    console.log(client);
-    app.listen(3300);
-});
+app.listen(3300);
