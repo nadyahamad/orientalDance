@@ -2,7 +2,7 @@ const Product = require('../models/product');
 
 // /admin/add-class => GET
 exports.getAddClass = (req, res, next) => {
-    res.render('add-class', {
+    res.render('admin/add-class', {
         title: 'Add Class',
         path: '/admin/add-class',
         formsCSS: true,
@@ -12,21 +12,22 @@ exports.getAddClass = (req, res, next) => {
 };
 
 exports.postAddClass = (req, res, next) => {
-    const product = new Product(req.body.title);
+    const title = req.body.title;
+    const imageUrl = req.body.imageUrl;
+    const price = req.body.price;
+    const description = req.body.description;
+    const product = new Product(title, imageUrl, description, price);
     product.save();
     res.redirect('/classes');
 };
 
 
-exports.getClasses = (req, res, next) => {
+exports.getClassesList = (req, res, next) => {
     Product.fetchAll((products) => {
-        res.render('classes', {
+        res.render('admin/classes-list', {
             prods: products,
-            title: 'classes',
-            path: '/classes',
-            hasProducts: products.length > 0,
-            activeProduct: true,
-            productCSS: true
+            path: '/classes-list',
+            title: 'Admin classes',
         });
     });
 };

@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 
-const indexRoutes = require('./routes/index');
+const staticsRoutes = require('./routes/statics');
 const sign_inRoutes = require('./routes/sign-in');
 
 
@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use(indexRoutes);
+app.use(staticsRoutes);
 app.use(sign_inRoutes);
 
 app.use('/admin', adminRoutes);

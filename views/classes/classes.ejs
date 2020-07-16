@@ -1,8 +1,8 @@
-<%- include('partials/head.ejs') %>
+<%- include('../partials/head.ejs') %>
 </head>
 <body>
-  <%- include('partials/header.ejs') %>
-  <main>
+  <%- include('../partials/header.ejs') %>
+  <main class="content">
     <% if (prods.length > 0) { %>
         <div class="grid">
             <% for (let product of prods) { %>
@@ -29,7 +29,7 @@
     <% } %>
 </main> 
 
-  <%- include('partials/footer.ejs') %>
-  <%- include('partials/end.ejs') %>
+  <%- include('../partials/footer.ejs') %>
+  <%- include('../partials/end.ejs') %>
 </body>
 </html>

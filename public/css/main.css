@@ -286,6 +286,7 @@ header {
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
+	z-index: 1;
 }
 
 .header-1 {
@@ -338,6 +339,27 @@ header {
 	right: 50px;
 	padding: 10px;
 }
+.admin-menu{
+	list-style: none;
+	font-family: 'Montserrat', sans-serif !important;
+	margin-top: 0px;
+	padding: 0px !important;
+}
+
+.admin-menu li{
+	list-style: none;
+	font-family: 'Montserrat', sans-serif !important;
+	margin-top: 0px;
+	padding: 0px !important;
+}
+
+.admin-menu a{
+	padding: 5px; 
+	text-decoration: none; 
+	font-size: 1rem;
+	font-weight: 200;
+	color: #fff;
+} 
 
 /*= HEADER | LARGE/DESKTOP
 --------------------------------------------------------*/
@@ -366,9 +388,11 @@ header {
         font-weight: 400;
         color: #871C54;
 
-    }
-
+	}
+	
     a.active{
+		padding: 5px; 
+        text-decoration: none; 
         font-size: 1.3rem;
         font-weight: 400;
         color: #42004E;
