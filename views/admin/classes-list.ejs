@@ -1,12 +1,49 @@
 <%- include('../partials/head.ejs') %>
 </head>
 <body>
-  <%- include('../partials/header.ejs') %>
-  <main class="content">
-    <h1>Classes List</h1> 
-  </main>
-
-  <%- include('../partials/footer.ejs') %>
-  <%- include('../partials/end.ejs') %>
+  	<%- include('../partials/header.ejs') %>
+  	<main class="content">
+		<h1 class="tex-center"> Admin Classes </h1>
+		<!-- classes info -->
+		<% if (prods.length > 0) { %>
+		<section class="card-container mt-1 mb-1">
+			<% for (let product of prods) { %>
+			<div class="card-class col-3">
+				<img src="/img/classes/1-oriental.jpg" alt="Classic Oriental" class="img">
+				<div class="form-card row">
+					<div class="row">
+						<p class="col-3"><strong>Title:</strong></p>
+						<p class="col-9" ><%= product.title %> </p>
+					</div>
+					<div class="row">
+						<p class="col-3"><strong>Description:</strong></p>
+						<p class="col-9" ><%= product.description %> </p>
+					</div>
+				</div>
+				<div class="card-container mt-2">
+					<button id=" " class="headbutton mr-1 col-5" type="button" onclick ="location.href='/admin/edit-class'"> 
+						Edit
+					</button>
+					<button id=" " class="headbutton col-5" type="button" onclick ="location.href='/admin/edit-class'"> 
+						Delete
+					</button>
+				</div>
+			</div>
+			<% } %>
+		</section>
+		<section class="container">
+			<div class="col-8">
+				<button id="" class="large-btn" type="button" onclick ="location.href='/admin/add-class'"> 
+					Add a new class
+				</button>
+			</div>
+		</section>
+		<% } else { %>
+			<h2>No Products Found!</h2>
+		<% } %>
+		<!-- classes info -->
+  	</main>
+  	<%- include('../partials/footer.ejs') %>
+  	<%- include('../partials/end.ejs') %>
 </body>
 </html>

@@ -10,6 +10,9 @@ const router = express.Router();
 // /admin/add-class => GET
 router.get('/add-class', adminController.getAddClass);
 
+// /admin/edit-class => GET
+router.get('/edit-class', adminController.getEditClass);
+
 // /admin/classes-list => GET
 router.get('/classes-list',  adminController.getClassesList);
 

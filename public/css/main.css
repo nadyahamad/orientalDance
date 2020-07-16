@@ -174,19 +174,21 @@ h1 {
 	font-weight: 800;
 	font-size: 2rem;
 	text-align: center;
+	color: #42004E;
 }
 
 h2{
 	font-family: 'Montserrat', cursive !important;
 	text-align: center;
 	font-weight: 400;
-	font-size: 2.5rem;
+	font-size: 1.8rem;
+	color: #42004E;
 }
 
 h3{
 	font-family: 'Montserrat', cursive  !important;
 	font-weight: 400;
-	font-size: 2rem;
+	font-size: 1.6rem;
 }
 
 p{
@@ -258,7 +260,7 @@ p{
 	h3{
 		font-family: 'Montserrat', cursive  !important;
 		font-weight: 400;
-		font-size: 1.8rem;
+		font-size: 1.2rem;
 	}
 
 	p{

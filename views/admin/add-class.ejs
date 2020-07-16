@@ -2,23 +2,43 @@
 </head>
 <body>
   <%- include('../partials/header.ejs') %>
-
-  <main>
-    <form class="product-form" action="/admin/add-class" method="POST">
-        <div class="form-control">
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title">
-            <label for="imageUrl">Image</label>
-            <input type="text" name="imageUrl" id="imageUrl">
-            <label for="description">description</label>
-            <textarea name="description" id="description" rows ="5"></textarea>
-            <label for="date">date</label>
-            <input type="text" name="date" id="date">
-        </div>
-
-        <button class="btn" type="submit">Add Product</button>
-    </form>
-</main>
+	<main class="content">
+		<h1 class="tex-center"> Add a new class </h1>
+		<!-- form card -->
+		<section class="container mt-2 mb-1">
+			<div class="form-card col-8">
+				<!-- form Add a class -->
+				<form method="post" action="/admin/add-class" class="">
+					<!-- Add title input -->
+					<div class="padding-1">
+						<label for="title">Title</label>
+						<input type= "text" name ="title" placeholder="title" id="title" class ="form-inputs"/>
+					</div>
+					<!-- Add img input -->
+					<div class="padding-1">
+						<label for="imageUrl">Image</label>
+						<input type= "text" name ="imageUrl" placeholder="imageUrl" id="imageUrl" class ="form-inputs"/>
+					</div>
+					<!-- Add description input -->
+					<div class="padding-1">
+						<label for="description">Description</label>
+						<textarea name="description" placeholder="imageUrl" rows ="5" id="description" class ="form-inputs"></textarea>
+					</div>
+					<!-- Add date input -->
+					<div class="padding-1">
+						<label for="bookingDate">Date</label>
+						<input type="date" id="bookingDate" name="bookingDate" class ="form-inputs">
+					</div>
+					<!-- submit btn -->
+					<div class="padding-1 container">
+						<input type="submit" value="Add Class" class="large-btn">
+					</div>
+				</form>
+				<!-- form Add a class -->
+			</div>
+		</section>
+		<!-- form card -->
+	</main>
   <%- include('../partials/footer.ejs') %>
   <%- include('../partials/end.ejs') %>
 </body>

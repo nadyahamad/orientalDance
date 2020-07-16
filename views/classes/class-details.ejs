@@ -1,0 +1,46 @@
+<%- include('../partials/head.ejs') %>
+</head>
+<body>
+	<%- include('../partials/header.ejs') %>
+	<main class="content">
+		<!-- class info -->
+		<section>
+			<h1><%= title %></h1>
+			<div class="card-container mt-2">
+				<div class="col-3 col-s-8">
+					<img src="/img/classes/1-oriental.jpg" alt="Classic Oriental" class="img">
+				</div>
+				<div class="col-6 col-s-8">
+					<p class="text-justify">
+						Pastry tiramisu pudding biscuit caramels ice cream sweet roll. 
+						Sugar plum soufflé cookie topping chocolate bar sugar plum marzipan. 
+						Croissant gummi bears brownie lollipop tiramisu pudding. 
+						Toffee biscuit brownie. Chocolate bar oat cake soufflé gingerbread caramels wafer. 
+						lemon drops toffee pudding soufflé. Dessert tiramisu jelly. 
+						Carrot cake soufflé halvah jelly beans candy canes cake wafer. 
+					</p>
+				</div>
+			</div>
+		</section>
+		<!-- class info -->
+		<!-- dates info -->
+		<section class=" ">
+			<div class="pt-1">
+				<h2 class="yellow-bg text-center pt-1"> Book a class </h2>
+			</div>
+			<div class="container">
+				<div class="form-card col-6 col-s-10 card-container">
+					<h3 class="col-8 col-s-7">Basic Level</h3>
+					<div class="col-2 col-s-3 mt-1">
+						<button id=" " class="headbutton mt-3 mr-2" type="button" onclick ="location.href='/book-class'"> 
+							Book
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<%- include('../partials/footer.ejs') %>
+	<%- include('../partials/end.ejs') %>
+</body>
+</html>

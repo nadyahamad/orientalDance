@@ -3,9 +3,42 @@
 <body>
   <%- include('../partials/header.ejs') %>
   <main class="content">
-    <h1>Edit classes</h1> 
-  </main>
-
+		<h1 class="tex-center"> Edit this class </h1>
+		<!-- form card -->
+		<section class="container mt-2 mb-1">
+			<div class="form-card col-8">
+				<!-- form edit a class -->
+				<form method="post" action="/admin/add-class" class="">
+					<!-- Edit title input -->
+					<div class="padding-1">
+						<label for="title">Title</label>
+						<input type= "text" name ="title" placeholder="title" id="title" class ="form-inputs"/>
+					</div>
+					<!-- Edit img input -->
+					<div class="padding-1">
+						<label for="imageUrl">Image</label>
+						<input type= "text" name ="imageUrl" placeholder="imageUrl" id="imageUrl" class ="form-inputs"/>
+					</div>
+					<!-- Edit description input -->
+					<div class="padding-1">
+						<label for="description">Description</label>
+						<textarea name="description" placeholder="imageUrl" rows ="5" id="description" class ="form-inputs"></textarea>
+					</div>
+					<!-- Edit date input -->
+					<div class="padding-1">
+						<label for="bookingDate">Date</label>
+						<input type="date" id="bookingDate" name="bookingDate" class ="form-inputs">
+					</div>
+					<!-- submit btn -->
+					<div class="padding-1 container">
+						<input type="submit" value="Save Changes" class="large-btn">
+					</div>
+				</form>
+				<!-- form Add a class -->
+			</div>
+		</section>
+		<!-- form card -->
+	</main>
   <%- include('../partials/footer.ejs') %>
   <%- include('../partials/end.ejs') %>
 </body>

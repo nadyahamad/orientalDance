@@ -33,7 +33,7 @@ exports.getBooking = (req, res, next) => {
     Product.fetchAll((products) => {
         res.render('classes/booking', {
             path: '/booking',
-            title: 'Your booking',
+            title: 'Your booking Confirmation',
         });
     });
 };

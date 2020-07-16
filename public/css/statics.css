@@ -43,7 +43,7 @@ h2.yellow-bg{
     clip-path: polygon(0 0, 100% 0%, 90% 100%, 0% 100%);
     text-align: center;
 	font-weight: 700;
-    font-size: 2.3rem;
+    font-size: 2rem;
     font-style: italic;
     padding: 10px;
     width: 90%;
@@ -194,7 +194,7 @@ margin: auto;
         clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
         text-align: center;
         font-weight: 700;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-style: italic;
         padding: 5px;
         width: 90%;

@@ -21,6 +21,16 @@ exports.postAddClass = (req, res, next) => {
     res.redirect('/classes');
 };
 
+exports.getEditClass = (req, res, next) => {
+    Product.fetchAll((products) => {
+        res.render('admin/edit-class', {
+            prods: products,
+            path: '/admin/edit-class',
+            title: 'Edit thi class',
+        });
+    });
+};
+
 
 exports.getClassesList = (req, res, next) => {
     Product.fetchAll((products) => {
@@ -31,3 +41,5 @@ exports.getClassesList = (req, res, next) => {
         });
     });
 };
+
+
