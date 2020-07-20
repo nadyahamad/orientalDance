@@ -9,9 +9,9 @@
 		<section class="card-container mt-1 mb-1">
 			<% for (let product of prods) { %>
 			<div class="card-class col-3">
-				<img src="/img/classes/1-oriental.jpg" alt="Classic Oriental" class="img">
-				<button id="" class="btn-class" type="button" onclick ="location.href='/class-details'"> 
-					<%= product.title %>
+				<img src="<%= product.imageUrl %>"  alt="Classic Oriental" class="img">
+				<button id="" class="btn-class" type="button" onclick ="location.href='/classes/class-details/<%= product.classId %>'"> 
+					<%= product.class_name %>
 				</button>
 			</div>
 			<% } %>

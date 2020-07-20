@@ -11,14 +11,14 @@ exports.getClasses = (req, res, next) => {
     });
 };
 
-exports.getClassDetails = (req, res, next) => {
-    Product.fetchAll((products) => {
-        res.render('classes/class-details', {
-            path: '/class-details',
-            title: 'Class Details',
-        });
+exports.getClass = (req, res, next) => {
+    const classId = req.params.classId;
+    Product.findById(classId, product => {
+        console.log(product);
     });
+    res.redirect('/classes');
 };
+
 
 exports.getBookClass = (req, res, next) => {
     Product.fetchAll((products) => {
@@ -29,12 +29,21 @@ exports.getBookClass = (req, res, next) => {
     });
 };
 
-exports.getBooking = (req, res, next) => {
+exports.getBookingCheckout = (req, res, next) => {
     Product.fetchAll((products) => {
-        res.render('classes/booking', {
-            path: '/booking',
+        res.render('classes/booking-checkout', {
+            path: '/booking-checkout',
             title: 'Your booking Confirmation',
         });
     });
 };
 
+
+exports.getBookings = (req, res, next) => {
+    Product.fetchAll((products) => {
+        res.render('classes/bookings', {
+            path: '/bookings',
+            title: 'Your Bookings',
+        });
+    });
+};

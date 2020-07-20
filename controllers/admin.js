@@ -12,11 +12,12 @@ exports.getAddClass = (req, res, next) => {
 };
 
 exports.postAddClass = (req, res, next) => {
-    const title = req.body.title;
+    const class_name = req.body.class_name;
     const imageUrl = req.body.imageUrl;
-    const price = req.body.price;
     const description = req.body.description;
-    const product = new Product(title, imageUrl, description, price);
+    const level = req.body.level;
+    const studio_num = req.body.studio_num;
+    const product = new Product(class_name, imageUrl, description, level, studio_num);
     product.save();
     res.redirect('/classes');
 };
