@@ -1,4 +1,5 @@
 const Product = require('../models/product');
+const Cart = require('../models/cart');
 
 // /products/classes => GET
 exports.getClasses = (req, res, next) => {
@@ -11,14 +12,17 @@ exports.getClasses = (req, res, next) => {
     });
 };
 
-exports.getClassDetails = (req, res, next) => {
-    Product.fetchAll((products) => {
+exports.getClass = (req, res, next) => {
+    const cId = req.params.class_id;
+    Product.findById(cId, product => {
         res.render('classes/class-details', {
-            path: '/class-details',
-            title: 'Class Details',
+            product: product,
+            title: product.class_name,
+            path: '/classes',
         });
     });
 };
+
 
 exports.getBookClass = (req, res, next) => {
     Product.fetchAll((products) => {
@@ -29,12 +33,29 @@ exports.getBookClass = (req, res, next) => {
     });
 };
 
-exports.getBooking = (req, res, next) => {
+exports.postBookClass = (req, res, next) => {
+    const cId = req.body.classid;
+    Product.findById(cId, (product) => {
+        Cart.addProduct(cId, product.price);
+    });
+    res.redirect('/book-class');
+};
+
+exports.getBookingCheckout = (req, res, next) => {
     Product.fetchAll((products) => {
-        res.render('classes/booking', {
-            path: '/booking',
-            title: 'Your booking',
+        res.render('classes/booking-checkout', {
+            path: '/booking-checkout',
+            title: 'Your booking Confirmation',
         });
     });
 };
 
+
+exports.getBookings = (req, res, next) => {
+    Product.fetchAll((products) => {
+        res.render('classes/bookings', {
+            path: '/bookings',
+            title: 'Your Bookings',
+        });
+    });
+};

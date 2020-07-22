@@ -1,0 +1,48 @@
+/*= CLASSES - CONTENT| LARGE/DESKTOP
+--------------------------------------------------------*/
+/* card-class*/
+.card-class{
+    padding: 0px;
+    margin: .8rem;
+    width: 20rem;
+    max-width: 95%;
+    
+}
+
+/* btn-class */
+.btn-class {
+	background-color: #F0E442;
+	color: #42004E;
+	clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
+	padding: 15px;
+	width: 100%;
+	font-size: 1.4rem;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin: auto;
+}
+
+.btn-class:hover {
+	background-color: #42004E;
+	color: #Fff;
+	clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
+	padding: 15px;
+	width: 100%;
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin: auto;
+}
+
+
+h2.class-title{
+	font-family: 'Montserrat', cursive !important;
+	text-align: center;
+	font-weight: 400;
+	font-size: 1rem;
+	color: #42004E;
+}

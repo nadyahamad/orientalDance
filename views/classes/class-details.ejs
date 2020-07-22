@@ -1,0 +1,45 @@
+<%- include('../partials/head.ejs') %>
+</head>
+<body>
+	<%- include('../partials/header.ejs') %>
+	<main class="content">
+		<!-- class info -->
+		<section>
+			<h1><%= product.class_name %></h1>
+			<div class="card-container mt-2">
+				<div class="col-3 col-s-8">
+					<img src="<%= product.imageUrl %>" alt="Classic Oriental" class="img">
+				</div>
+				<div class="col-6 col-s-8">
+					<p class="text-justify">
+						<%= product.description %>
+					</p>
+				</div>
+			</div>
+		</section>
+		<!-- class info -->
+		<!-- dates info -->
+		<section class=" ">
+			<div class="pt-1">
+				<h2 class="yellow-bg text-center pt-1"> Book a class </h2>
+			</div>
+			<div class="container">
+				<div class="form-card col-6 col-s-10 card-container">
+					<h3 class="col-8 col-s-7">Basic Level</h3>
+					<div class="col-2 col-s-3 mt-1">
+						
+						<form action="/book-class" method="POST">
+							<button id=" " class="headbutton mt-3 mr-2" type="submit"> 
+								Book
+							</button>
+							<input type="hidden" name="classid" value="<%= product.classId %>">
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<%- include('../partials/footer.ejs') %>
+	<%- include('../partials/end.ejs') %>
+</body>
+</html>

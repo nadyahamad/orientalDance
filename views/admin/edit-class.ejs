@@ -3,9 +3,44 @@
 <body>
   <%- include('../partials/header.ejs') %>
   <main class="content">
-    <h1>Edit classes</h1> 
-  </main>
-
+		<h1 class="tex-center"> Edit this class </h1>
+		<!-- form card -->
+		<section class="container mt-2 mb-1">
+			<div class="form-card col-8">
+				<!-- form edit a class -->
+				<form method="post" action="/admin/<% if (editing) { %>edit-class<% } else { %>add-class<% } %>" class="">
+					<!-- Edit class Name input -->
+					<div class="padding-1">
+						<label for="class_name">Class Name</label>
+						<input type= "text" name ="class_name"  id="class_name" class ="form-inputs" value="<% if (editing) { %><%= product.class_name %><% } %>"/>
+					</div>
+					<!-- Edit img input -->
+					<div class="padding-1">
+						<label for="imageUrl">Image</label>
+						<input type= "text" name ="imageUrl" placeholder="imageUrl" id="imageUrl" class ="form-inputs" value="<% if (editing) { %><%= product.imageUrl %><% } %>"/>
+					</div>
+					<!-- Edit description input -->
+					<div class="padding-1">
+						<label for="description">Description</label>
+						<textarea name="description"  rows ="5" id="description" class ="form-inputs">
+							<% if (editing) { %><%= product.description %><% } %>
+						</textarea>
+					</div>
+					<% if (editing) { %>
+						<input type="hidden" value="<%= product.classId %>" name="class_id">
+					<% } %>
+					<!-- submit btn -->
+					<div class="padding-1 container">
+						<button class="large-btn" type="submit"> 
+							<% if (editing) { %> Update class <%} else { %> Add a new class <%} %> 
+						</button>
+					</div>
+				</form>
+				<!-- form Add a class -->
+			</div>
+		</section>
+		<!-- form card -->
+	</main>
   <%- include('../partials/footer.ejs') %>
   <%- include('../partials/end.ejs') %>
 </body>

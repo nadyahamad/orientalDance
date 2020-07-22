@@ -2,24 +2,58 @@ const Product = require('../models/product');
 
 // /admin/add-class => GET
 exports.getAddClass = (req, res, next) => {
-    res.render('admin/add-class', {
+    res.render('admin/edit-class', {
         title: 'Add Class',
         path: '/admin/add-class',
-        formsCSS: true,
-        productCSS: true,
-        activeAddProduct: true
+        editing: false
     });
 };
 
 exports.postAddClass = (req, res, next) => {
-    const title = req.body.title;
+    const class_name = req.body.class_name;
     const imageUrl = req.body.imageUrl;
-    const price = req.body.price;
     const description = req.body.description;
-    const product = new Product(title, imageUrl, description, price);
+    const studio_num = req.body.studio_num;
+    const product = new Product(null, class_name, imageUrl, description, studio_num);
     product.save();
     res.redirect('/classes');
 };
+
+exports.getEditClass = (req, res, next) => {
+    const editMode = req.query.edit;
+    if (!editMode) {
+        return res.redirect('/');
+    }
+    const cId = req.params.classId;
+    Product.findById(cId, product => {
+    if (!product) {
+        return res.redirect('/');
+    }
+    res.render('admin/edit-class', {
+        title: 'Edit Class',
+        path: '/admin/edit-class',
+        editing: editMode,
+        product: product
+        });
+    });
+};
+
+exports.postEditClass = (req, res, next) => {
+    const cId = req.body.class_id;
+    const updatedName = req.body.class_name;
+    const updatedImageUrl = req.body.imageUrl;
+    const updatedDesc = req.body.description;
+    const updatedStudio_num = req.body.studio_num;
+    const updatedClass = new Product (
+        cId,
+        updatedName,
+         updatedImageUrl,
+        updatedDesc,
+        updatedStudio_num
+    );
+    updatedClass.save();
+    res.redirect('/admin/classes-list');
+  };
 
 
 exports.getClassesList = (req, res, next) => {
@@ -31,3 +65,10 @@ exports.getClassesList = (req, res, next) => {
         });
     });
 };
+
+
+exports.postDeleteClass = (req, res, next) => {
+    const cId = req.body.class_id;
+};
+
+
