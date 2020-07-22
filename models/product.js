@@ -20,22 +20,43 @@ const getProductsFromFile = cb => {
 }
 
 module.exports = class Product {
-    constructor(class_name, imageUrl, description, level, studio_num){
+    constructor(classId, class_name, imageUrl, description, level, studio_num){
+        this.classId = classId;
         this.class_name = class_name;
         this.imageUrl = imageUrl;
         this.description = description;
-        this.level = level;
         this.studio_num = studio_num;
     }
 
-    save(){
-        this.classId = Math.random().toString();
+    save(){   
         getProductsFromFile(products =>{
+            if (this.classId){
+                const existingProductIndex = products.findIndex(
+                    prod => prod.classId === this.classId
+                );
+                const updatedProducts = [...products];
+                updatedProducts[existingProductIndex] = this;
+                fs.writeFile(p, JSON.stringify(updatedProducts), err => {
+                    console.log(err);
+                });
+            } 
+            else {
+            this.classId = Math.random().toString();
             products.push(this);
-            fs.writeFile(p, JSON.stringify(products), err =>{
-                console.log(err);
-            });
+                fs.writeFile(p, JSON.stringify(products), err =>{
+                    console.log(err);
+                });
+            }
         });
+    }
+
+    static deleteById(classId){
+        getProductsFromFile(products => {
+            const updatedProducts = products.fliter( prod => prod.classId !== classId);
+            fs.writeFile(p, JSON.stringify(updatedProducts), err =>{
+                if(!err);
+            });
+         });
     }
 
     static fetchAll(cb){
@@ -44,8 +65,9 @@ module.exports = class Product {
 
     static findById(classId, cb){
         getProductsFromFile(products => {
-        const product = products.find(p => p.id === classId);
+        const product = products.find(p => p.classId === classId);
         cb(product);
         });
     }
+
 };

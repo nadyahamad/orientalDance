@@ -8,30 +8,32 @@
 		<section class="container mt-2 mb-1">
 			<div class="form-card col-8">
 				<!-- form edit a class -->
-				<form method="post" action="/admin/add-class" class="">
+				<form method="post" action="/admin/<% if (editing) { %>edit-class<% } else { %>add-class<% } %>" class="">
 					<!-- Edit class Name input -->
 					<div class="padding-1">
 						<label for="class_name">Class Name</label>
-						<input type= "text" name ="class_name" placeholder="Class Name" id="class_name" class ="form-inputs"/>
+						<input type= "text" name ="class_name"  id="class_name" class ="form-inputs" value="<% if (editing) { %><%= product.class_name %><% } %>"/>
 					</div>
 					<!-- Edit img input -->
 					<div class="padding-1">
 						<label for="imageUrl">Image</label>
-						<input type= "text" name ="imageUrl" placeholder="imageUrl" id="imageUrl" class ="form-inputs"/>
+						<input type= "text" name ="imageUrl" placeholder="imageUrl" id="imageUrl" class ="form-inputs" value="<% if (editing) { %><%= product.imageUrl %><% } %>"/>
 					</div>
 					<!-- Edit description input -->
 					<div class="padding-1">
 						<label for="description">Description</label>
-						<textarea name="description" placeholder="imageUrl" rows ="5" id="description" class ="form-inputs"></textarea>
+						<textarea name="description"  rows ="5" id="description" class ="form-inputs">
+							<% if (editing) { %><%= product.description %><% } %>
+						</textarea>
 					</div>
-					<!-- Edit level input -->
-					<div class="padding-1">
-						<label for="level">Level</label>
-						<input type="text" id="level" name="level" class ="form-inputs">
-					</div>
+					<% if (editing) { %>
+						<input type="hidden" value="<%= product.classId %>" name="class_id">
+					<% } %>
 					<!-- submit btn -->
 					<div class="padding-1 container">
-						<input type="submit" value="Save Changes" class="large-btn">
+						<button class="large-btn" type="submit"> 
+							<% if (editing) { %> Update class <%} else { %> Add a new class <%} %> 
+						</button>
 					</div>
 				</form>
 				<!-- form Add a class -->

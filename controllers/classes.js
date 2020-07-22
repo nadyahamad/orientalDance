@@ -1,4 +1,5 @@
 const Product = require('../models/product');
+const Cart = require('../models/cart');
 
 // /products/classes => GET
 exports.getClasses = (req, res, next) => {
@@ -12,11 +13,14 @@ exports.getClasses = (req, res, next) => {
 };
 
 exports.getClass = (req, res, next) => {
-    const classId = req.params.classId;
-    Product.findById(classId, product => {
-        console.log(product);
+    const cId = req.params.class_id;
+    Product.findById(cId, product => {
+        res.render('classes/class-details', {
+            product: product,
+            title: product.class_name,
+            path: '/classes',
+        });
     });
-    res.redirect('/classes');
 };
 
 
@@ -27,6 +31,14 @@ exports.getBookClass = (req, res, next) => {
             title: 'Your booking',
         });
     });
+};
+
+exports.postBookClass = (req, res, next) => {
+    const cId = req.body.classid;
+    Product.findById(cId, (product) => {
+        Cart.addProduct(cId, product.price);
+    });
+    res.redirect('/book-class');
 };
 
 exports.getBookingCheckout = (req, res, next) => {

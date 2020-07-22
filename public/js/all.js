@@ -7,7 +7,7 @@ function cancelAdd(){
     window.location.href = '/users';
 }
 
-function addProducts{      
+function addProducts(){      
     window.location.href = '/adminproducts/add';
 }
 

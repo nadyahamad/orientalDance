@@ -8,16 +8,11 @@
 			<h1><%= product.class_name %></h1>
 			<div class="card-container mt-2">
 				<div class="col-3 col-s-8">
-					<img src="/img/classes/1-oriental.jpg" alt="Classic Oriental" class="img">
+					<img src="<%= product.imageUrl %>" alt="Classic Oriental" class="img">
 				</div>
 				<div class="col-6 col-s-8">
 					<p class="text-justify">
-						Pastry tiramisu pudding biscuit caramels ice cream sweet roll. 
-						Sugar plum soufflé cookie topping chocolate bar sugar plum marzipan. 
-						Croissant gummi bears brownie lollipop tiramisu pudding. 
-						Toffee biscuit brownie. Chocolate bar oat cake soufflé gingerbread caramels wafer. 
-						lemon drops toffee pudding soufflé. Dessert tiramisu jelly. 
-						Carrot cake soufflé halvah jelly beans candy canes cake wafer. 
+						<%= product.description %>
 					</p>
 				</div>
 			</div>
@@ -34,9 +29,10 @@
 					<div class="col-2 col-s-3 mt-1">
 						
 						<form action="/book-class" method="POST">
-							<button id=" " class="headbutton mt-3 mr-2" type="button" onclick ="location.href='/book-class'"> 
+							<button id=" " class="headbutton mt-3 mr-2" type="submit"> 
 								Book
 							</button>
+							<input type="hidden" name="classid" value="<%= product.classId %>">
 						</form>
 					</div>
 				</div>
