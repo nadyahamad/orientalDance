@@ -8,6 +8,21 @@
 		<section class="container mt-2 mb-1">
 			<div class="form-card col-6 col-s-11">
 				<h2> Class Title</h2>
+				<% if (products.length > 0) { %>
+					<ul>
+						<% products.forEach(p => { %>
+							<li>
+								<p><%= p.productData.title %> (<%= p.qty %>)</p>
+								<form action="/cart-delete-item" method="POST">
+									<input type="hidden" value="<%= p.productData.id %>" name="productId">
+									<button class="btn" type="submit">Delete</button>
+								</form>
+							</li>
+						<% }) %>
+					</ul>
+				<% } else { %>
+					<h1>No Products in Cart!</h1>
+				<% } %>
 				<!-- submit btn -->
 				<div class="padding-1">
 					<input type="submit" value="Delete" class="deletebtn">
