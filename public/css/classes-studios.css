@@ -39,10 +39,59 @@
 }
 
 
-h2.class-title{
+.class-title{
 	font-family: 'Montserrat', cursive !important;
 	text-align: center;
 	font-weight: 400;
 	font-size: 1rem;
 	color: #42004E;
+}
+
+p.text-description{
+	font-weight: 100;
+	font-size: .9rem;
+}
+
+/* btn-signin */
+.deletebtn {
+	background-color: #3e484f;
+	border: 2px solid #EEEEEE;
+	color: #EEEEEE;
+	border-radius: 20px;
+	padding: 10px 20px;
+	font-size: 1rem;
+	font-weight: 300;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.deletebtn:hover {
+	background-color: #7B0091;
+	border: 2px solid #EEEEEE;
+	color: #EEEEEE;
+	border-radius: 20px;
+	padding: 10px 20px;
+	font-size: 1rem;
+	font-weight: 400;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+
+
+
+/*=  CLASS - CONTENT | SMALL/MOBILE
+--------------------------------------------------------*/
+
+@media screen and (max-width: 1023px){
+
+	.class-title{
+		font-family: 'Montserrat', cursive !important;
+		text-align: center;
+		font-weight: 400;
+		font-size: .8rem;
+		color: #42004E;
+	}
+
 }

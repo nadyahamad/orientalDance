@@ -3,49 +3,40 @@
 <body>
 	<%- include('../partials/header.ejs') %>
 	<main class="content">
-		<h1>Class Title</h1>
-		<h2 class="yellow-bg text-center pt-1"><%= title %></h1>
+		<h1 class="yellow-bg text-center pt-1"><%= title %></h1>
 		<!-- book class -->
 		<section class="container mt-2 mb-1">
-			<div class="form-card col-6">
-				<h2>Level</h2>
-				<!-- form book class -->
-				<form method="post" action="/booking" class="">
-					<!-- select day -->
-					<div class="card-container">
-						<div class="col-4">
-							<label for="title" class="col-12">Select Day</label>
-						</div>
-						<div class="col-6">
-							<select id="day" name="day" class ="form-inputs">
-								<option value="Mon 06 Jul">Mon 06 Jul</option>
-								<option value="Mon 13 Jul">Mon 13 Jul</option>
-								<option value="Mon 20 Jul">Mon 20 Jul</option>
-							</select>
-						</div>
-					</div>
-					<!-- select day -->
-					<!-- select time -->
-					<div class="card-container">
-						<div class="col-4">
-							<label for="title" class="col-12">Select Time</label>
-						</div>
-						<div class="col-6">
-							<select id="day" name="day" class ="form-inputs">
-								<option value="6pm - 7pm">6pm - 7pm</option>
-								<option value="7pm - 8pm">7pm - 8pm</option>
-							</select>
-						</div>
-					</div>
-					<!-- select time -->
-					<!-- submit btn -->
-					<div class="padding-1 container">
-						<input type="submit" value="Confirm your booking" class="large-btn">
-					</div>
-				</form>
-				<!-- form book class -->
+			<div class="form-card col-6 col-s-11">
+				<h2> Class Title</h2>
+				<!-- submit btn -->
+				<div class="padding-1">
+					<input type="submit" value="Delete" class="deletebtn">
+				</div>
+			</div>
 		</section>
 		<!-- book class -->
+		<section class="container">
+			<div class="col-6 col-s-11 flex-container">
+				<div class="col-5">
+					<button id=" " class="headbutton col-11" type="button" onclick =" "> 
+						Add new booking
+					</button>
+				</div>
+				<form action="/admin/delete-class" method="POST" class="col-5">
+					<input type="hidden" value="" name="class_id">
+					<button class="deletebtn col-11" type="submit"> 
+						Delete booking
+					</button>
+				</form>
+			</div>
+		</section>
+		<section class="container">
+			<div class="col-8">
+				<button id="" class="large-btn" type="button" onclick =""> 
+					Confirm Booking
+				</button>
+			</div>
+		</section>
 	</main>
 	<%- include('../partials/footer.ejs') %>
 	<%- include('../partials/end.ejs') %>
