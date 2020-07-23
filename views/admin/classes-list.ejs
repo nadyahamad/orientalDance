@@ -8,22 +8,24 @@
 		<% if (prods.length > 0) { %>
 		<section class="card-container mt-1 mb-1">
 			<% for (let product of prods) { %>
-			<div class="card-class col-3">
+			<div class="card-class col-6 col-s-10">
 				<img src="<%= product.imageUrl %>" alt="Classic Oriental" class="img">
 				<div class="form-card row">
 					<div class="row">
-						<p class="col-3"><strong>Title:</strong></p>
-						<p class="col-9" ><%= product.class_name %> </p>
+						<p class="col-3 text-description"><strong>Title:</strong></p>
+						<p class="col-9 text-description" ><%= product.class_name %> </p>
 					</div>
 					<div class="row">
-						<p class="col-3"><strong>Description:</strong></p>
-						<p class="col-9" ><%= product.description %> </p>
+						<p class="col-4 text-description"><strong>Description:</strong></p>
+						<p class="col-8 text-description" ><%= product.description %> </p>
 					</div>
 				</div>
 				<div class="card-container mt-2">
-					<button id=" " class="headbutton mr-1 col-5" type="button" onclick ="location.href='/admin/edit-class/<%= product.classId %>?edit=true'"> 
-						Edit
-					</button>
+					<div class="col-5">
+						<button id=" " class="headbutton col-11" type="button" onclick ="location.href='/admin/edit-class/<%= product.classId %>?edit=true'"> 
+							Edit
+						</button>
+					</div>
 					<form action="/admin/delete-class" method="POST" class="col-5">
 						<input type="hidden" value="<%= product.classId %>" name="class_id">
 						<button class="headbutton" type="submit"> 

@@ -69,6 +69,8 @@ exports.getClassesList = (req, res, next) => {
 
 exports.postDeleteClass = (req, res, next) => {
     const cId = req.body.class_id;
+    Product.deleteById(cId);
+    res.redirect('/admin/classes-list');
 };
 
 

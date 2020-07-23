@@ -25,12 +25,22 @@ exports.getClass = (req, res, next) => {
 
 
 exports.getBookClass = (req, res, next) => {
-    Product.fetchAll((products) => {
-        res.render('classes/book-class', {
+    Cart.getCart(cart => {
+        Product.fetchAll(products => {
+            const cartProducts = [];
+            for (product of products) {
+                const cartProductData = cart.products.find(prod => prod.classId === product.classId);
+                if (cartProductData){
+                    cartProducts.push({productData: product, qty: cartProductData.qty });
+                }
+            }
+            res.render('classes/book-class', {
             path: '/book-class',
             title: 'Your booking',
+            products: cartProducts
+            });
         });
-    });
+   });   
 };
 
 exports.postBookClass = (req, res, next) => {
