@@ -7,7 +7,7 @@ const mongoConnect = callback => {
     MongoClient.connect(
         'mongodb+srv://nahamad:Y1mb4c4T4b0g0@cluster0.3pcv2.mongodb.net/ORIENTALDANCE?retryWrites=true&w=majority'
     )
-
+    
     .then(client => {
       console.log('Connected!');
       _db = client.db();

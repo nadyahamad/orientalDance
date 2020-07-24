@@ -3,24 +3,31 @@ const Cart = require('../models/cart');
 
 // /products/classes => GET
 exports.getClasses = (req, res, next) => {
-    Product.fetchAll((products) => {
+    Product.fetchAll()
+      .then(products => {
         res.render('classes/classes', {
-            prods: products,
-            title: 'classes',
-            path: '/classes',
+          prods: products,
+          title: 'Our classes',
+          path: '/classes'
         });
-    });
-};
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
 
 exports.getClass = (req, res, next) => {
-    const cId = req.params.class_id;
-    Product.findById(cId, product => {
-        res.render('classes/class-details', {
-            product: product,
-            title: product.class_name,
-            path: '/classes',
-        });
-    });
+    const prodId = req.params.productId;
+    Product.findById(prodId)
+    .then(product => {
+      res.render('classes/class-details', {
+        product: product,
+        title: product.title,
+        path: '/classes'
+      });
+    })
+    .catch(err => console.log(err));
 };
 
 
