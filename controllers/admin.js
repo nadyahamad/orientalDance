@@ -1,7 +1,5 @@
 const Product = require('../models/product');
 
-
-
 // /admin/add-class => GET
 exports.getAddClass = (req, res, next) => {
     res.render('admin/edit-class', {
@@ -16,7 +14,14 @@ exports.postAddClass = (req, res, next) => {
     const imageUrl = req.body.imageUrl;
     const description = req.body.description;
     const studio_num = req.body.studio_num;
-    const product = new Product(title, imageUrl, description, studio_num);
+    const product = new Product(
+      title, 
+      imageUrl, 
+      description, 
+      studio_num, 
+      null, 
+      req.user._id
+    );
     product
         .save()
         .then(result => {
