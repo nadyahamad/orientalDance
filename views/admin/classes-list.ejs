@@ -13,7 +13,7 @@
 				<div class="form-card row">
 					<div class="row">
 						<p class="col-3 text-description"><strong>Title:</strong></p>
-						<p class="col-9 text-description" ><%= product.class_name %> </p>
+						<p class="col-9 text-description" ><%= product.title %> </p>
 					</div>
 					<div class="row">
 						<p class="col-4 text-description"><strong>Description:</strong></p>
@@ -22,12 +22,12 @@
 				</div>
 				<div class="card-container mt-2">
 					<div class="col-5">
-						<button id=" " class="headbutton col-11" type="button" onclick ="location.href='/admin/edit-class/<%= product.classId %>?edit=true'"> 
+						<button id=" " class="headbutton col-11" type="button" onclick ="location.href='/admin/edit-class/<%= product._id %>?edit=true'"> 
 							Edit
 						</button>
 					</div>
 					<form action="/admin/delete-class" method="POST" class="col-5">
-						<input type="hidden" value="<%= product.classId %>" name="class_id">
+						<input type="hidden" value="<%= product._id %>" name="productId">
 						<button class="headbutton" type="submit"> 
 							Delete
 						</button>

@@ -9,14 +9,14 @@ const router = express.Router();
 
 router.get('/classes', classesController.getClasses);
 
-router.get('/classes/:class_id', classesController.getClass);
+router.get('/classes/:productId', classesController.getClass);
 
-router.get('/book-class', classesController.getBookClass);
+// router.get('/book-class', classesController.getBookClass);
 
-router.post('/book-class',classesController.postBookClass);
+// router.post('/book-class',classesController.postBookClass);
 
-router.get('/bookings', classesController.getBookings);
+// router.get('/bookings', classesController.getBookings);
 
-router.get('/booking-checkout', classesController.getBookingCheckout);
+// router.get('/booking-checkout', classesController.getBookingCheckout);
 
 module.exports = router;

@@ -10,8 +10,8 @@
 			<% for (let product of prods) { %>
 			<div class="card-class col-3">
 				<img src="<%= product.imageUrl %>"  alt="Classic Oriental" class="img">
-				<button id="" class="btn-class" type="button" onclick ="location.href='/classes/<%= product.classId %>'"> 
-					<%= product.class_name %>
+				<button id="" class="btn-class" type="button" onclick ="location.href='/classes/<%= product._id %>'"> 
+					<%= product.title %>
 				</button>
 			</div>
 			<% } %>
