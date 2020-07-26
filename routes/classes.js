@@ -9,11 +9,13 @@ const router = express.Router();
 
 router.get('/classes', classesController.getClasses);
 
-router.get('/classes/:productId', classesController.getClass);
+router.get('/classes/:productId', classesController.getProduct);
 
-// router.get('/book-class', classesController.getBookClass);
+router.get('/booking-cart', classesController.getCart);
 
-// router.post('/book-class',classesController.postBookClass);
+router.post('/booking-cart',classesController.postCart);
+
+router.post('/cart-delete-item', classesController.postCartDeleteProduct);
 
 // router.get('/bookings', classesController.getBookings);
 

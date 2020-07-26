@@ -7,14 +7,15 @@
 		<!-- book class -->
 		<section class="container mt-2 mb-1">
 			<div class="form-card col-6 col-s-11">
-				<h2> Class Title</h2>
+				<h2><%= p.title %></h2>
 				<% if (products.length > 0) { %>
 					<ul>
 						<% products.forEach(p => { %>
-							<li>
-								<p><%= p.productData.title %> (<%= p.qty %>)</p>
+							<li class="cart__item">
+								<h1><%= p.title %></h1>
+								<h2>Quantity: <%= p.quantity %></h2>
 								<form action="/cart-delete-item" method="POST">
-									<input type="hidden" value="<%= p.productData.id %>" name="productId">
+									<input type="hidden" value="<%= p._id %>" name="productId">
 									<button class="btn" type="submit">Delete</button>
 								</form>
 							</li>
