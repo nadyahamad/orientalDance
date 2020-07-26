@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res, next) => {
-    res.render('statics/index', {title: 'Oriental Dance'});
+    res.render('statics/index', {title: 'Oriental Dance', path: '/', isAuthenticated: req.isLoggedIn});
 });
 
 module.exports = router;

@@ -1,6 +1,5 @@
 const Product = require('../models/product');
 
-
 // /products/classes => GET
 exports.getClasses = (req, res, next) => {
 	Product.fetchAll()
@@ -8,7 +7,8 @@ exports.getClasses = (req, res, next) => {
 		res.render('classes/classes', {
 			prods: products,
 			title: 'Our classes',
-			path: '/classes'
+      path: '/classes',
+      isAuthenticated: req.isLoggedIn
 		});
 	})
 	.catch(err => {
@@ -23,7 +23,8 @@ exports.getProduct = (req, res, next) => {
       	res.render('classes/class-details', {
         	product: product,
         	title: product.title,
-        path: '/class-details'
+          path: '/class-details',
+          isAuthenticated: req.isLoggedIn
       });
     })
     .catch(err => console.log(err));
@@ -36,7 +37,8 @@ exports.getCart = (req, res, next) => {
       res.render('classes/booking-cart', {
         path: '/booking-cart',
         title: 'Your Cart',
-        products: products
+        products: products,
+        isAuthenticated: req.isLoggedIn
       });
     })
     .catch(err => console.log(err));
@@ -64,25 +66,29 @@ exports.postCartDeleteProduct = (req, res, next) => {
     })
     .catch(err => console.log(err));
 }; 
-    
-/* 
 
-exports.getBookingCheckout = (req, res, next) => {
-    Product.fetchAll((products) => {
-        res.render('classes/booking-checkout', {
-            path: '/booking-checkout',
-            title: 'Your booking Confirmation',
-        });
-    });
+exports.postOrder = (req, res, next) => {
+  let fetchedCart;
+  req.user
+    .addOrder()
+    .then(result => {
+      res.redirect('/bookings');
+    })
+    .catch(err => console.log(err));
 };
 
-
-exports.getBookings = (req, res, next) => {
-    Product.fetchAll((products) => {
-        res.render('classes/bookings', {
-            path: '/bookings',
-            title: 'Your Bookings',
-        });
-    });
+exports.getOrders = (req, res, next) => {
+  req.user
+    .getOrders()
+    .then(orders => {
+      res.render('classes/bookings', {
+        path: '/bookings',
+        title: 'Your Bookings',
+        orders: orders,
+        isAuthenticated: req.isLoggedIn
+      });
+    })
+    .catch(err => console.log(err));
 };
- */
+
+ 

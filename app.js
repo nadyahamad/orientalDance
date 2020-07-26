@@ -17,7 +17,7 @@ app.set('views', 'views');
 
 
 const staticsRoutes = require('./routes/statics');
-const sign_inRoutes = require('./routes/sign-in');
+const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const classesRoutes = require('./routes/classes');
 
@@ -36,16 +36,13 @@ app.use((req, res, next) => {
     .catch(err => console.log(err));
 });
 
-
-app.use(staticsRoutes);
-app.use(sign_inRoutes);
 app.use('/admin', adminRoutes);
 app.use(classesRoutes);
-
-
+app.use(staticsRoutes);
+app.use(authRoutes);
 
   
-  
+
   app.use(errorController.get404);
   
   mongoConnect(() => {

@@ -1,14 +1,18 @@
 <body>
     <header>
         <div class="header-1">
+            <% if (isAuthenticated) { %>
             <nav class="admin-menu flex-container col-8 ">
+               
                 <li>
-                    <a class="nav-link" href="/admin/classes-list" >Classes List</a>
+                    <a class="<%= path === '/admin/classes-list' ? 'active' : '' %> nav-link" href="/admin/classes-list" >Classes List</a>
                 </li>
+               
             </nav>
+            <% } %>
             <div class="col-2 right mt-1 menu-large">
-                <button id="loginbtn" class="headbutton mr-1" type="button" onclick ="location.href='/sign-in'"> 
-                    Sign in
+                <button id="loginbtn" class="<%= path === '/login' ? 'active' : '' %> headbutton mr-1" type="button" onclick ="location.href='/login'"> 
+                    Login
                 </button>
             </div>
         </div>
@@ -25,13 +29,13 @@
                 <!-- navigation large & medium devices -->
                 <nav class="menu-large flex-container">
                     <li>
-                        <a href="/" class="nav-link">Home</a>
+                        <a href="/" class="<%= path === '/' ? 'active' : '' %> nav-link">Home</a>
                     </li>
                     <li>
                         <a href="/about_us" class="nav-link ">About Us</a>
                     </li>
                     <li>
-                        <a href="/classes" class="nav-link">Our Classes</a>
+                        <a href="/classes" class="<%= path === '/classes' ? 'active' : '' %> nav-link">Our Classes</a>
                     </li>
                     <li>
                         <a href="/studios" class="nav-link">Our Studios</a>

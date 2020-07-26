@@ -17,8 +17,10 @@ router.post('/booking-cart',classesController.postCart);
 
 router.post('/cart-delete-item', classesController.postCartDeleteProduct);
 
-// router.get('/bookings', classesController.getBookings);
+router.post('/create-order', classesController.postOrder);
 
-// router.get('/booking-checkout', classesController.getBookingCheckout);
+router.get('/bookings', classesController.getOrders);
+
+
 
 module.exports = router;

@@ -5,7 +5,8 @@ exports.getAddClass = (req, res, next) => {
     res.render('admin/edit-class', {
         title: 'Add Class',
         path: '/admin/add-class',
-        editing: false
+        editing: false,
+        isAuthenticated: req.isLoggedIn
     });
 };
 
@@ -40,7 +41,8 @@ exports.getClassesList = (req, res, next) => {
         res.render('admin/classes-list', {
           prods: products,
             title: 'Admin Products',
-          path: 'admin/classes-list'
+          path: 'admin/classes-list',
+          isAuthenticated: req.isLoggedIn
         });
       })
       .catch(err => console.log(err));
@@ -63,7 +65,8 @@ exports.getEditClass = (req, res, next) => {
           title: 'Edit Class',
           path: 'admin/edit-class',
           editing: editMode,
-          product: product
+          product: product,
+          isAuthenticated: req.isLoggedIn
         });
       })
       .catch(err => console.log(err));

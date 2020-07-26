@@ -3,10 +3,25 @@
 <body>
 	<%- include('../partials/header.ejs') %>
 	<main class="content">
-		<h1 class="yellow-bg text-center pt-1"> <%= title %></h1>
+		<h1 class="yellow-bg text-center pt-1">123 </h1>
 		<!-- Successful Message -->
 		<section class="container mt-2 mb-1">
-			
+			<% if (orders.length <= 0) { %>
+                <h1>Nothing there!</h1>
+            <% } else { %>
+                <ul class="orders">
+                    <% orders.forEach(order => { %>
+                        <li class="orders__item">
+                            <h1>Order - # <%= order._id %></h1>
+                            <ul class="orders__products">
+                                <% order.items.forEach(product => { %>
+                                    <li class="orders__products-item"><%= product.title %> (<%= product.quantity %>)</li>
+                                <% }); %>
+                            </ul>
+                        </li>
+                    <% }); %>
+                </ul>
+            <% } %>
 
 		</section>
 		<!-- Successful Message -->
