@@ -1,6 +1,6 @@
-<%- include('partials/head.ejs') %>
+<%- include('../partials/head.ejs') %>
     <body>
-        <%- include('partials/header.ejs') %>
+        <%- include('../partials/header.ejs') %>
         <!-- main content -->
         <main class="content">
             <!-- tabs -->
@@ -50,17 +50,17 @@
                         <h1 class="tex-center"> Login </h1>
                         <p class="text-center ml-2"> Please enter your details </p>
                         <!-- form Login -->
-                        <form method="POST" action='/login_data'>
+                        <form method="POST" action='/login'>
                             <div class="padding-1">
-                                <label>Username</label>
-                                <input type= "text" name ="username" placeholder="Username" class ="form-inputs" autocomplete required/>
+                                <label for="email">Email</label>
+                                <input type="email" name="email"  id="email" placeholder="email" class="form-inputs" />
                             </div>
                             <div class="padding-1">
-                                <label>Password</label>
-                                <input type= "password" name ="password" placeholder="Password" class ="form-inputs" autocomplete required/>
+                                <label for="password">Password</label>
+                                <input type="password" name="password"  id="password" placeholder="Password" class="form-inputs" />
                             </div>
                             <div class="padding-1 container">
-                                <input type="submit" value="Login" class="large-btn" >
+                                <button class="large-btn" type="submit">Login</button>
                             </div>
                         </form>
                         <!-- form Login --> 
@@ -71,7 +71,7 @@
             <!-- tabs -->
         </main>
         <!-- main content -->
-        <%- include('partials/footer.ejs') %>
-        <%- include('partials/end.ejs') %>
+        <%- include('../partials/footer.ejs') %>
+        <%- include('../partials/end.ejs') %>
     </body>
 </html>
