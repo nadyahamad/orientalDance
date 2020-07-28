@@ -44,12 +44,14 @@
 					<!-- select time -->
 				</form>
 				<!-- form book class -->
+				<% if (isAuthenticated) { %>
 				<form action="/booking-cart" method="POST" class="container">
 					<button id=" " class="large-btn col-5 mt-1 mb-1" type="submit"> 
 						Book this class
 					</button>
 					<input type="hidden" name="productId" value="<%= product._id %>">
 				</form>
+				<% } %>
 			</div>
 		</section>
 		<!-- class info -->

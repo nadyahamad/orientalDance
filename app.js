@@ -1,18 +1,22 @@
-/**
- * Module dependencies.
- */
 const path= require('path');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-//const session = require('express-session');
-
+const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
-const app = express();
+const MONGODB_URI =
+  'mongodb+srv://nahamad:Y1mb4c4T4b0g0@cluster0.3pcv2.mongodb.net/ORIENTALDANCE';
 
+const app = express();
+const store = new MongoDBStore({
+  uri: MONGODB_URI,
+  collection: 'sessions'
+});
 
 // Set view engine to use, in this case 'ejs'
 app.set('view engine', 'ejs');
@@ -20,7 +24,7 @@ app.set('views', 'views');
 
 
 const staticsRoutes = require('./routes/statics');
-//const authRoutes = require('./routes/auth');
+const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const classesRoutes = require('./routes/classes');
 
@@ -29,12 +33,20 @@ const classesRoutes = require('./routes/classes');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(
-//   session({ secret: 'oriental dance', resave: false, saveUninitialized: false })
-// );
+app.use(
+  session({ 
+    secret: 'oriental dance', 
+    resave: false, 
+    saveUninitialized: false,
+    store: store 
+  })
+);
 
 app.use((req, res, next) => {
-  User.findById('5f1e161f23814343d1b14062')
+  if (!req.session.user) {
+    return next();
+  }
+  User.findById(req.session.user._id)
     .then(user => {
       req.user = user;
       next();
@@ -45,7 +57,7 @@ app.use((req, res, next) => {
 app.use('/admin', adminRoutes);
 app.use(classesRoutes);
 app.use(staticsRoutes);
-//app.use(authRoutes);
+app.use(authRoutes);
 
   
 
@@ -53,7 +65,7 @@ app.use(staticsRoutes);
   
   mongoose
   .connect(
-    'mongodb+srv://nahamad:Y1mb4c4T4b0g0@cluster0.3pcv2.mongodb.net/ORIENTALDANCE?retryWrites=true&w=majority'
+    MONGODB_URI
   )
   .then(result => {
     User.findOne().then(user => {

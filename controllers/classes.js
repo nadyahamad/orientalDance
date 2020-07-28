@@ -9,8 +9,8 @@ exports.getClasses = (req, res, next) => {
       res.render('classes/classes', {
         prods: products,
         title: 'Our classes',
-        path: '/classes'
-        //isAuthenticated: req.isLoggedIn
+        path: '/classes',
+        isAuthenticated: req.session.isLoggedIn
       });
 	})
 	.catch(err => {
@@ -25,15 +25,15 @@ exports.getProduct = (req, res, next) => {
       	res.render('classes/class-details', {
         	product: product,
         	title: product.title,
-          path: '/class-details'
-          //isAuthenticated: req.isLoggedIn
+          path: '/class-details',
+          isAuthenticated: req.session.isLoggedIn
       });
     })
     .catch(err => console.log(err));
 };
 
 exports.getCart = (req, res, next) => {
-    req.user
+  req.user
     .populate('cart.items.productId')
     .execPopulate()
     .then(user => {
@@ -41,7 +41,8 @@ exports.getCart = (req, res, next) => {
       res.render('classes/booking-cart', {
         path: '/booking-cart',
         title: 'Your Booking Basket',
-        products: products
+        products: products,
+        isAuthenticated: req.session.isLoggedIn
       });
     })
     .catch(err => console.log(err));
@@ -69,7 +70,7 @@ exports.postCartDeleteProduct = (req, res, next) => {
     })
     .catch(err => console.log(err));
 }; 
-
+  
 exports.postOrder = (req, res, next) => {
   req.user
     .populate('cart.items.productId')
@@ -102,8 +103,8 @@ exports.getOrders = (req, res, next) => {
       res.render('classes/bookings', {
         path: '/bookings',
         title: 'Your Bookings',
-        orders: orders
-        //isAuthenticated: req.isLoggedIn
+        orders: orders,
+        isAuthenticated: req.session.isLoggedIn
       });
     })
     .catch(err => console.log(err));

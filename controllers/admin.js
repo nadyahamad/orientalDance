@@ -5,8 +5,8 @@ exports.getAddClass = (req, res, next) => {
     res.render('admin/edit-class', {
         title: 'Add Class',
         path: '/admin/add-class',
-        editing: false
-        //isAuthenticated: req.isLoggedIn
+        editing: false,
+        isAuthenticated: req.session.isLoggedIn
     });
 };
 
@@ -33,20 +33,6 @@ exports.postAddClass = (req, res, next) => {
       });
 };
 
-exports.getClassesList = (req, res, next) => {
-    Product.find()
-    // .select('title price -_id')
-    // .populate('userId', 'name')
-      .then(products => {
-        res.render('admin/classes-list', {
-          prods: products,
-            title: 'Admin Products',
-          path: 'admin/classes-list'
-          //isAuthenticated: req.isLoggedIn
-        });
-      })
-      .catch(err => console.log(err));
-};
 
 
 exports.getEditClass = (req, res, next) => {
@@ -64,8 +50,8 @@ exports.getEditClass = (req, res, next) => {
           title: 'Edit Class',
           path: 'admin/edit-class',
           editing: editMode,
-          product: product
-          //isAuthenticated: req.isLoggedIn
+          product: product,
+          isAuthenticated: req.session.isLoggedIn
         });
       })
       .catch(err => console.log(err));
@@ -91,6 +77,20 @@ exports.getEditClass = (req, res, next) => {
     .catch(err => console.log(err));
 };
   
+exports.getClassesList = (req, res, next) => {
+  Product.find()
+  // .select('title price -_id')
+  // .populate('userId', 'name')
+    .then(products => {
+      res.render('admin/classes-list', {
+        prods: products,
+        title: 'Admin Products',
+        path: 'admin/classes-list',
+        isAuthenticated: req.session.isLoggedIn
+      });
+    })
+    .catch(err => console.log(err));
+};
 
 
 exports.postDeleteClass = (req, res, next) => {
