@@ -1,27 +1,28 @@
 const path = require('path');
 const express = require('express');
 const adminController = require('../controllers/admin');
+const isAuth = require('../middleware/is-auth');
 const router = express.Router();
 
 
 
 // /admin/add-class => GET
-router.get('/add-class', adminController.getAddClass);
+router.get('/add-class', isAuth, adminController.getAddClass);
 
 // /admin/add-class => POST
-router.post('/add-class',adminController.postAddClass );
+router.post('/add-class', isAuth, adminController.postAddClass );
 
 // /admin/classes-list => GET
-router.get('/classes-list',  adminController.getClassesList);
+router.get('/classes-list', isAuth, adminController.getClassesList);
 
 // /admin/edit-class => GET
-router.get('/edit-class/:productId', adminController.getEditClass);
+router.get('/edit-class/:productId', isAuth, adminController.getEditClass);
 
 // /admin/edit-class => POST
-router.post('/edit-class', adminController.postEditClass);
+router.post('/edit-class', isAuth, adminController.postEditClass);
 
 // /admin/delete-class => POST
-router.post('/delete-class', adminController.postDeleteClass);
+router.post('/delete-class', isAuth, adminController.postDeleteClass);
 
 
 

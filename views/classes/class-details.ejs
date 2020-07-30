@@ -46,6 +46,7 @@
 				<!-- form book class -->
 				<% if (isAuthenticated) { %>
 				<form action="/booking-cart" method="POST" class="container">
+					<input type="hidden" name="_csrf" value="<%= csrfToken %>">
 					<button id=" " class="large-btn col-5 mt-1 mb-1" type="submit"> 
 						Book this class
 					</button>

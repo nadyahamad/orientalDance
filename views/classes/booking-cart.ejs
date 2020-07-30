@@ -18,6 +18,7 @@
 				<!-- submit btn -->
 				<div class="padding-1">
 					<form action="/cart-delete-item" method="POST">
+						<input type="hidden" name="_csrf" value="<%= csrfToken %>">
 						<input type="hidden" value="<%= p.productId._id %>" name="productId">
 						<button class="deletebtn" type="submit">Delete</button>
 					</form>
@@ -36,6 +37,7 @@
 					</button>
 				</div>
 				<form action="/admin/delete-class" method="POST" class="col-5">
+					<input type="hidden" name="_csrf" value="<%= csrfToken %>">
 					<input type="hidden" value="" name="class_id">
 					<button class="deletebtn col-11" type="submit"> 
 						Delete booking
@@ -46,6 +48,7 @@
 		<section class="container">
 			<div class="col-8">
 				<form action="/create-order" method="POST">
+					<input type="hidden" name="_csrf" value="<%= csrfToken %>">
 					<button type="submit" class="large-btn">
 						Confirm Booking
 					</button>

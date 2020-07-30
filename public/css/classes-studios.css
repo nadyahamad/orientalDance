@@ -22,6 +22,7 @@
 	text-decoration: none;
 	display: inline-block;
 	margin: auto;
+	border: none;
 }
 
 .btn-class:hover {

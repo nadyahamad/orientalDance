@@ -226,6 +226,13 @@ margin: auto;
 }
 
 
+/*= CONTACT - CONTENT| LARGE/DESKTOP
+--------------------------------------------------------*/
+.map{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    background-size: cover;
 
-
+}
   

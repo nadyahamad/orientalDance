@@ -4,6 +4,15 @@ exports.getIndex = (req, res, next) => {
         'statics/index', 
         {title: 'Oriental Dance', 
         path: '/',
-        isAuthenticated: req.session.isLoggedIn
+    });
+};
+
+
+// /index => GET
+exports.getContact = (req, res, next) => {
+    res.render(
+        'statics/contact', 
+        {title: 'Contact Us', 
+        path: '/contact_us',
     });
 };
