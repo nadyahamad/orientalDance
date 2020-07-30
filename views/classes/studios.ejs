@@ -1,0 +1,27 @@
+<%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <main class="content">
+		<h1 class="tex-center"> Our Classes </h1>
+		<!-- classes info -->
+		<% if (prods.length > 0) { %>
+		<section class="card-container mt-1 mb-1">
+			<% for (let product of prods) { %>
+			<div class="card-class col-3">
+				<img src="<%= product.imageUrl %>"  alt="Classic Oriental" class="img">
+				<button id="" class="btn-class" type="button" onclick ="location.href='/classes/<%= product._id %>'"> 
+					<%= product.title %>
+				</button>
+			</div>
+			<% } %>
+		</section>
+		<% } else { %>
+			<h2>No Products Found!</h2>
+		<% } %>
+		<!-- classes info -->
+  	</main>
+    <%- include('../partials/footer.ejs') %>
+    <%- include('../partials/end.ejs') %>
+</body>
+</html>

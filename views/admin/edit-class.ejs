@@ -29,6 +29,7 @@
 					<% } %>
 					<!-- submit btn -->
 					<div class="padding-1 container">
+						<input type="hidden" name="_csrf" value="<%= csrfToken %>">
 						<button class="large-btn" type="submit"> 
 							<% if (editing) { %> Update class <%} else { %> Add a new class <%} %> 
 						</button>

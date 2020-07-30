@@ -1,31 +1,28 @@
 <body>
     <header>
         <div class="header-1">
-            
-            <nav class="admin-menu flex-container col-8 "> 
+            <nav class="admin-menu flex-container "> 
                 <% if (isAuthenticated) { %>
                 <li>
                     <a class="<%= path === '/admin/classes-list' ? 'active' : '' %> nav-link" href="/admin/classes-list" >Classes List</a>
                 </li>
                 <% } %>
-                <ul class="main-header__item-list">
+                <div class="col-3 right mt-1 menu-large">
                     <% if (!isAuthenticated) { %>
-                    <li class="main-header__item">
-                        <a class="<%= path === '/login' ? 'active' : '' %>" href="/login">Login</a>
-                    </li>
+                        <button id="" class="<%= path === '/login' ? 'active' : '' %> headbutton mr-1" type="button" onclick ="location.href='/login'"> 
+                            Login
+                        </button>
+                        <button id="" class="<%= path === '/signup' ? 'active' : '' %> headbutton mr-1" type="button" onclick ="location.href='/signup'"> 
+                            Register
+                        </button>
                     <% } else { %>
-                    <li class="main-header__item">
                         <form action="/logout" method="post">
-                            <button type="submit">Logout</button>
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <button type="submit" class="headbutton mr-1">Logout</button>
                         </form>
-                    </li>
                     <% } %>
-                </ul>
-            </nav>
-            
-            
-                      
-            </div>
+                </div>
+            </nav>   
         </div>
         <!-- navigation large & medium devices -->
         <div class="row menu-large">
@@ -43,17 +40,19 @@
                         <a href="/" class="<%= path === '/' ? 'active' : '' %> nav-link">Home</a>
                     </li>
                     <li>
-                        <a href="/about_us" class="nav-link ">About Us</a>
-                    </li>
-                    <li>
                         <a href="/classes" class="<%= path === '/classes' ? 'active' : '' %> nav-link">Our Classes</a>
                     </li>
                     <li>
                         <a href="/studios" class="nav-link">Our Studios</a>
                     </li>
                     <li>
-                        <a href="/contact_us" class="nav-link">Contact Us</a> 
+                        <a href="/contact_us" class="<%= path === '/contact_us' ? 'active' : '' %> nav-link">Contact Us</a> 
                     </li>
+                    <% if (isAuthenticated) { %>
+                        <i class="<%= path === '/booking-cart' ? 'active-cart' : '' %> material-icons cart-icon">
+                            <a class="" href="/booking-cart" >shopping_cart</a>
+                        </i>
+                    <% } %>
                 </nav>
                 <!-- navigation large & medium devices --> 
             </div>
@@ -76,9 +75,6 @@
                             <a href="/" class="nav-link active">Home</a>
                         </li>
                         <li>
-                            <a href="/about_us" class="nav-link ">About Us</a>
-                        </li>
-                        <li>
                             <a href="/classes" class="nav-link">Our Classes</a>
                         </li>
                         <li>
@@ -87,9 +83,26 @@
                         <li>
                             <a href="/contact_us" class="nav-link">Contact Us</a>
                         </li>
-                        <button id="" class="headbutton mr-1" type="button" onclick ="location.href=''"> 
-                            Sign in
-                        </button>
+                        <% if (isAuthenticated) { %>
+                            <i class="material-icons cart-icon">
+                                <a class="<%= path === '/booking-cart' ? 'active' : '' %>" href="/booking-cart" >shopping_cart</a>
+                            </i>
+                        <% } %>
+                        <div class="container">
+                            <% if (!isAuthenticated) { %>
+                                <button id="" class="<%= path === '/login' ? 'active' : '' %> headbutton mr-1" type="button" onclick ="location.href='/login'"> 
+                                    Login
+                                </button>
+                                <button id="" class="<%= path === '/signup' ? 'active' : '' %> headbutton mr-1" type="button" onclick ="location.href='/signup'"> 
+                                    Register
+                                </button>
+                            <% } else { %>
+                                <form action="/logout" method="post">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <button type="submit" class="headbutton mr-1">Logout</button>
+                                </form>
+                            <% } %>
+                        </div>
                     </nav>
                     <!-- navigation large & medium devices --> 
                 </div>

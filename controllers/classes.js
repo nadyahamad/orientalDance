@@ -9,8 +9,7 @@ exports.getClasses = (req, res, next) => {
       res.render('classes/classes', {
         prods: products,
         title: 'Our classes',
-        path: '/classes',
-        isAuthenticated: req.session.isLoggedIn
+        path: '/classes'
       });
 	})
 	.catch(err => {
@@ -25,8 +24,7 @@ exports.getProduct = (req, res, next) => {
       	res.render('classes/class-details', {
         	product: product,
         	title: product.title,
-          path: '/class-details',
-          isAuthenticated: req.session.isLoggedIn
+          path: '/class-details'
       });
     })
     .catch(err => console.log(err));
@@ -41,8 +39,7 @@ exports.getCart = (req, res, next) => {
       res.render('classes/booking-cart', {
         path: '/booking-cart',
         title: 'Your Booking Basket',
-        products: products,
-        isAuthenticated: req.session.isLoggedIn
+        products: products
       });
     })
     .catch(err => console.log(err));
@@ -81,7 +78,7 @@ exports.postOrder = (req, res, next) => {
       });
       const order = new Order({
         user: {
-          name: req.user.name,
+          email: req.user.email,
           userId: req.user
         },
         products: products
@@ -103,8 +100,7 @@ exports.getOrders = (req, res, next) => {
       res.render('classes/bookings', {
         path: '/bookings',
         title: 'Your Bookings',
-        orders: orders,
-        isAuthenticated: req.session.isLoggedIn
+        orders: orders
       });
     })
     .catch(err => console.log(err));

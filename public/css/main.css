@@ -278,7 +278,7 @@ p{
 /* header style */
 header {
 	text-align: center;
-	background-color:  rgba(252, 235, 255,0.7);
+	background-color:  rgba(252, 235, 255,0.8);
 	color: #42004E;
 	display: block;
 	height: 200px;
@@ -315,9 +315,9 @@ header {
 }
 
 .headbutton:hover {
-	background-color: #7B0091;
-	border: 2px solid #EEEEEE;
-	color: #EEEEEE;
+	background-color: #F0E442;
+	border: 2px solid #42004E;
+	color: #42004E;
 	border-radius: 20px;
 	padding: 10px 20px;
 	font-size: 1rem;
@@ -326,6 +326,27 @@ header {
 	text-decoration: none;
 	display: inline-block;
 }
+
+.cart-icon{
+	background-color: #EEEEEE;
+	border: 2px solid #42004E;
+	border-radius: 50px;
+	padding: 10px;
+	width: 50px;
+	height: 50px;
+	margin-top: 50px;
+}
+
+.cart-icon:hover{
+	background-color: #F0E442;
+	border: 2px solid #42004E;
+}
+
+.active-cart{
+	background-color: #F0E442;
+}
+
+
 
 /* logo responsive*/
 .img-logo {
@@ -496,6 +517,24 @@ header {
         font-weight: 400;
         color: #42004E;
 	}
+
+	.cart-icon{
+		background-color: #EEEEEE;
+		border: 2px solid #42004E;
+		border-radius: 50px;
+		padding: 10px;
+		width: 50px;
+		height: 50px;
+		margin: 30px 0px;
+	}
+	
+	.cart-icon:hover{
+		background-color: #F0E442;
+		border: 2px solid #42004E;
+		border-radius: 50px;
+		padding: 10px;
+	}
+
 }
 
 
