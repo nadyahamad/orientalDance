@@ -3,27 +3,39 @@
 <body>
 	<%- include('../partials/header.ejs') %>
 	<main class="content">
-		<h1 class="yellow-bg text-center pt-1">123 </h1>
-		<!-- Successful Message -->
-		<section class="container mt-2 mb-1">
-			<% if (orders.length <= 0) { %>
-                <h1>Nothing there!</h1>
-            <% } else { %>
-                <ul class="orders">
-                    <% orders.forEach(order => { %>
-                        <li class="orders__item">
-                            <h1>Order - # <%= order._id %></h1>
-                            <ul class="orders__products">
-                                <% order.products.forEach(p => { %>
-                                    <li class="orders__products-item"><%= p.product.title %> (<%= p.quantity %>)</li>
-                                <% }); %>
-                            </ul>
-                        </li>
-                    <% }); %>
-                </ul>
-            <% } %>
-
-		</section>
+        <div class="pt-1">
+			<h1 class="yellow-bg text-center pt-1"> <%= title %> </h1>
+		</div>
+        <!-- Successful Message -->
+        <% if (orders.length > 0) { %>
+		<section class="card-container mb-1">
+            <% orders.forEach(order => { %>
+            <div class="form-card col-7 col-s-11 mt-1 ml-1">
+                <div class="line">
+                    <h2 class="text-center mb-1"> Booking # <%= order._id %></h2>
+                </div>
+                <% order.products.forEach(p => { %>
+                <h2 class="text-card  text-center" > <%= p.product.title %>  </h2>
+                <div class="row">
+                    <p class="col-3 text-card"><strong>Date:</strong></p>
+                    <p class="col-9 text-card  text-center" ><%= p.product.date %> </p>
+                </div>
+                <div class="row">
+                    <p class="col-3 text-card"><strong>Time:</strong></p>
+                    <p class="col-9 text-card  text-center" ><%= p.product.time %> </p>
+                </div>
+                <div class="row">
+                    <p class="col-3 text-card"><strong>Studio Num:</strong></p>
+                    <p class="col-9 text-card  text-center" ><%= p.product.studio_num %> </p>
+                </div>
+                 <% }); %>
+            </div>
+            <% }); %>
+        </section>
+        <% } else { %>
+			<h2>No Bookings here</h2>
+		<% } %>
+        
 		<!-- Successful Message -->
 	</main>
 

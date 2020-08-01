@@ -23,11 +23,16 @@ exports.postAddClass = (req, res, next) => {
     const title = req.body.title;
     const imageUrl = req.body.imageUrl;
     const description = req.body.description;
+    const date = req.body.date;
+    const time = req.body.time;
     const studio_num = req.body.studio_num;
     const product = new Product({
       title: title,
       imageUrl: imageUrl,
       description: description,
+      date: date,
+      time: time,
+      studio_num:studio_num,
       userId: req.user
     });
     product
@@ -70,12 +75,18 @@ exports.getEditClass = (req, res, next) => {
     const updatedTitle = req.body.title;
     const updatedImageUrl = req.body.imageUrl;
     const updatedDesc = req.body.description;
+    const updatedDate = req.body.date;
+    const updatedTime = req.body.time;
+    const updatedStudio = req.body.studio_num;
   
     Product.findById(prodId)
     .then(product => {
       product.title = updatedTitle;
       product.imageUrl = updatedImageUrl;
       product.description = updatedDesc;
+      product.date = updatedDate;
+      product.time = updatedTime;
+      product.studio_num = updatedStudio;
       return product.save();
     })
     .then(result => {

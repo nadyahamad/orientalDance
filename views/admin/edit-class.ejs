@@ -24,10 +24,20 @@
 						<label for="description">Description</label>
 						<textarea name="description"  rows="5" id="description" class ="form-inputs"><% if (editing) { %><%= product.description %><% } %></textarea>
 					</div>
-					<!-- Edit img input -->
+					<!-- Edit date input -->
 					<div class="padding-1">
 						<label for="date">Date</label>
-						<input type= "date" name ="date" id="date" class ="form-inputs" value="<% if (editing) { %><%= product.imageUrl %><% } %>"/>
+						<input type= "date" name ="date" id="date" class ="form-inputs" value="<% if (editing) { %><%= product.date %><% } %>"/>
+					</div>
+					<!-- Edit time input -->
+					<div class="padding-1">
+						<label for="time">Time</label>
+						<input type= "text" name ="time" id="time" class ="form-inputs" value="<% if (editing) { %><%= product.time %><% } %>"/>
+					</div>
+					<!-- Edit studion input -->
+					<div class="padding-1">
+						<label for="studio_num">Studio Num:</label>
+						<input type= "text" name ="studio_num" id="studio_num" class ="form-inputs" value="<% if (editing) { %><%= product.studio_num %><% } %>"/>
 					</div>
 
 					<% if (editing) { %>
