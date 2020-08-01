@@ -1,0 +1,63 @@
+<%- include('../partials/head.ejs') %>
+</head>
+<body>
+  <%- include('../partials/header.ejs') %>
+  <main class="content">
+		<h1 class="tex-center"> Admin Dashboard </h1>
+		<!-- form card -->
+		<section class="card-container mt-2 mb-1">
+			<!-- Admin classes-->
+			<div class="admin-card col-3">
+				<i class="material-icons card-icon">today</i>
+				<% if (isAuthenticated) { %>
+				<a href="/admin/classes-list" class="<%= path === '/admin/classes-list' ? 'active' : '' %>  btn-card" role="button" aria-pressed="true">
+					Manage Dance Classes
+				</a>
+				<% } %>
+			</div>
+			<!-- Admin studios -->
+			<div class="admin-card col-3">
+				<i class="material-icons card-icon">today</i>
+				<a href="" class="btn-card" role="button" aria-pressed="true">
+					Manage Dance Studios
+				</a>
+			</div>
+			<!-- Admin orders -->
+			<div class="admin-card col-3">
+				<i class="material-icons card-icon">assignment</i>
+				<a href="" class="btn-card" role="button" aria-pressed="true">
+					Manage Orders
+				</a>
+			</div>
+			
+			 <!-- <h2>My Account</h2>
+			<div class="container">
+				<div class="product-card">
+					<div class="card-img">
+						<i class="material-icons card-icon">person</i>
+					</div>
+					<% if(isAuthenticated) { %>
+					<a href="" class="btn-card" role="button" aria-pressed="true">
+					   Manage my Account
+					</a>
+					<% } %>
+				</div>
+				<div class="product-card">
+					<div class="card-img">
+						<i class="material-icons card-icon">shopping_basket</i>
+					</div>
+					<a href="" class="btn-card" role="button" aria-pressed="true">
+					   Manage my orders
+					</a>
+				</div> -->
+	
+			</div>
+	
+			
+		</section>
+		<!-- form card -->
+	</main>
+  <%- include('../partials/footer.ejs') %>
+  <%- include('../partials/end.ejs') %>
+</body>
+</html>

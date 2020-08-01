@@ -1,27 +1,63 @@
 <%- include('../partials/head.ejs') %>
 </head>
 <body>
-    <%- include('../partials/header.ejs') %>
-    <main class="content">
-		<h1 class="tex-center"> Our Classes </h1>
-		<!-- classes info -->
-		<% if (prods.length > 0) { %>
-		<section class="card-container mt-1 mb-1">
-			<% for (let product of prods) { %>
-			<div class="card-class col-3">
-				<img src="<%= product.imageUrl %>"  alt="Classic Oriental" class="img">
-				<button id="" class="btn-class" type="button" onclick ="location.href='/classes/<%= product._id %>'"> 
-					<%= product.title %>
-				</button>
+	<%- include('../partials/header.ejs') %>
+	<main class="content">
+		<div class="pt-1">
+			<h1 class="yellow-bg text-center pt-1"> <%= product.title %> </h1>
+		</div>
+		<!-- class info -->
+		<section class="container">
+			<div class="form-card col-5 col-s-10">
+				<img src="<%= product.imageUrl%>" alt="Classic Oriental" class="img">
+				<p class="text-justify">
+					<%= product.description %>
+				</p>
+				<!-- form book class -->
+				<form method="post" action="/" class="">
+					<!-- select day -->
+					<div class="card-container">
+						<div class="col-4">
+							<label for="title" class="col-12">Select Day</label>
+						</div>
+						<div class="col-6">
+							<select id="day" name="day" class ="form-inputs">
+								<option value="Mon 06 Jul">Mon 06 Jul</option>
+								<option value="Mon 13 Jul">Mon 13 Jul</option>
+								<option value="Mon 20 Jul">Mon 20 Jul</option>
+							</select>
+						</div>
+					</div>
+					<!-- select day -->
+					<!-- select time -->
+					<div class="card-container">
+						<div class="col-4">
+							<label for="title" class="col-12">Select Time</label>
+						</div>
+						<div class="col-6">
+							<select id="day" name="day" class ="form-inputs">
+								<option value="6pm - 7pm">6pm - 7pm</option>
+								<option value="7pm - 8pm">7pm - 8pm</option>
+							</select>
+						</div>
+					</div>
+					<!-- select time -->
+				</form>
+				<!-- form book class -->
+				<% if (isAuthenticated) { %>
+				<form action="/booking-cart" method="POST" class="container">
+					<input type="hidden" name="_csrf" value="<%= csrfToken %>">
+					<button id=" " class="large-btn col-5 mt-1 mb-1" type="submit"> 
+						Book this class
+					</button>
+					<input type="hidden" name="productId" value="<%= product._id %>">
+				</form>
+				<% } %>
 			</div>
-			<% } %>
 		</section>
-		<% } else { %>
-			<h2>No Products Found!</h2>
-		<% } %>
-		<!-- classes info -->
-  	</main>
-    <%- include('../partials/footer.ejs') %>
-    <%- include('../partials/end.ejs') %>
+		<!-- class info -->
+	</main>
+	<%- include('../partials/footer.ejs') %>
+	<%- include('../partials/end.ejs') %>
 </body>
 </html>

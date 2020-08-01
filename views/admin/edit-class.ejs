@@ -24,6 +24,12 @@
 						<label for="description">Description</label>
 						<textarea name="description"  rows="5" id="description" class ="form-inputs"><% if (editing) { %><%= product.description %><% } %></textarea>
 					</div>
+					<!-- Edit img input -->
+					<div class="padding-1">
+						<label for="date">Date</label>
+						<input type= "date" name ="date" id="date" class ="form-inputs" value="<% if (editing) { %><%= product.imageUrl %><% } %>"/>
+					</div>
+
 					<% if (editing) { %>
 						<input type="hidden" value="<%= product._id %>" name="productId">
 					<% } %>

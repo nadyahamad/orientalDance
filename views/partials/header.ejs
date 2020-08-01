@@ -2,11 +2,6 @@
     <header>
         <div class="header-1">
             <nav class="admin-menu flex-container "> 
-                <% if (isAuthenticated) { %>
-                <li>
-                    <a class="<%= path === '/admin/classes-list' ? 'active' : '' %> nav-link" href="/admin/classes-list" >Classes List</a>
-                </li>
-                <% } %>
                 <div class="col-3 right mt-1 menu-large">
                     <% if (!isAuthenticated) { %>
                         <button id="" class="<%= path === '/login' ? 'active' : '' %> headbutton mr-1" type="button" onclick ="location.href='/login'"> 
@@ -49,9 +44,12 @@
                         <a href="/contact_us" class="<%= path === '/contact_us' ? 'active' : '' %> nav-link">Contact Us</a> 
                     </li>
                     <% if (isAuthenticated) { %>
-                        <i class="<%= path === '/booking-cart' ? 'active-cart' : '' %> material-icons cart-icon">
-                            <a class="" href="/booking-cart" >shopping_cart</a>
-                        </i>
+                    <li class="">
+                        <a class="<%= path === '/admin/admin-landing' ? 'active-cart' : '' %> material-icons cart-icon" href="/admin/admin-landing">account_circle</a>
+                    </li> 
+                    <li>
+                        <a class="<%= path === '/booking-cart' ? 'active-cart' : '' %>  material-icons cart-icon" href="/booking-cart">shopping_cart</a>
+                    </li> 
                     <% } %>
                 </nav>
                 <!-- navigation large & medium devices --> 
@@ -84,9 +82,12 @@
                             <a href="/contact_us" class="nav-link">Contact Us</a>
                         </li>
                         <% if (isAuthenticated) { %>
-                            <i class="material-icons cart-icon">
-                                <a class="<%= path === '/booking-cart' ? 'active' : '' %>" href="/booking-cart" >shopping_cart</a>
-                            </i>
+                            <li class="">
+                                <a class="<%= path === '/admin/admin-landing' ? 'active-cart' : '' %> material-icons cart-icon" href="/admin/admin-landing">account_circle</a>
+                            </li> 
+                            <li>
+                                <a class="<%= path === '/booking-cart' ? 'active-cart' : '' %>  material-icons cart-icon" href="/booking-cart">shopping_cart</a>
+                            </li>
                         <% } %>
                         <div class="container">
                             <% if (!isAuthenticated) { %>
