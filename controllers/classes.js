@@ -99,7 +99,7 @@ exports.getOrders = (req, res, next) => {
     .then(orders => {
       res.render('classes/bookings', {
         path: '/bookings',
-        title: 'Your Bookings',
+        title: 'Bookings',
         orders: orders
       });
     })

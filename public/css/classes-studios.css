@@ -80,6 +80,23 @@ p.text-description{
 }
 
 
+h2.text-card{
+	padding: 0px;
+	border-bottom: 2px solid  #42004E;
+}
+
+p.text-card{
+	font-weight: 100;
+	font-size: 1rem;
+	padding: 0px;
+}
+
+.line{
+	background-color: #d5d5d5;
+	padding: 10px;
+	height: 70px;
+}
+
 
 /*=  CLASS - CONTENT | SMALL/MOBILE
 --------------------------------------------------------*/

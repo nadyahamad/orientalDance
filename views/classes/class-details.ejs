@@ -9,7 +9,7 @@
 		<!-- class info -->
 		<section class="container">
 			<div class="form-card col-5 col-s-10">
-				<img src="<%= product.imageUrl%>" alt="Classic Oriental" class="img">
+				<img src="<%= product.imageUrl%>" alt="dance class image" class="img">
 				<p class="text-justify">
 					<%= product.description %>
 				</p>
@@ -17,31 +17,49 @@
 				<form method="post" action="/" class="">
 					<!-- select day -->
 					<div class="card-container">
-						<div class="col-4">
-							<label for="title" class="col-12">Select Day</label>
+						<div class="col-5">
+							<p>
+								<label for="date" class="col-12">
+									<strong>Select Date</strong>
+								</label>
+
+							</p>
 						</div>
 						<div class="col-6">
-							<select id="day" name="day" class ="form-inputs">
-								<option value="Mon 06 Jul">Mon 06 Jul</option>
-								<option value="Mon 13 Jul">Mon 13 Jul</option>
-								<option value="Mon 20 Jul">Mon 20 Jul</option>
+							<select id="date" name="date" class ="form-inputs">
+								<option value="<%= product.date %>"><%= product.date %></option>
 							</select>
 						</div>
 					</div>
 					<!-- select day -->
-					<!-- select time -->
+					<!-- time -->
 					<div class="card-container">
 						<div class="col-4">
-							<label for="title" class="col-12">Select Time</label>
+							<p>
+								<strong>Time</strong>
+							</p>
 						</div>
 						<div class="col-6">
-							<select id="day" name="day" class ="form-inputs">
-								<option value="6pm - 7pm">6pm - 7pm</option>
-								<option value="7pm - 8pm">7pm - 8pm</option>
-							</select>
+							<p class="text-justify">
+								<%= product.time %>
+							</p>
 						</div>
 					</div>
-					<!-- select time -->
+					<!-- time -->
+					<!-- Studio Num -->
+					<div class="card-container">
+						<div class="col-4">
+							<p>
+								<strong>Studio Num</strong>
+							</p>
+						</div>
+						<div class="col-6">
+							<p class="text-justify">
+								<%= product.studio_num %>
+							</p>
+						</div>
+					</div>
+					<!-- Studio Num -->
 				</form>
 				<!-- form book class -->
 				<% if (isAuthenticated) { %>
