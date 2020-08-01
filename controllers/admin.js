@@ -1,6 +1,16 @@
 const Product = require('../models/product');
 
 // /admin/add-class => GET
+exports.getAdminLanding = (req, res, next) => {
+  res.render('admin/admin-landing', {
+      title: 'Admin Dashboard',
+      path: '/admin/admin-landing',
+      editing: false
+  });
+};
+
+
+// /admin/add-class => GET
 exports.getAddClass = (req, res, next) => {
     res.render('admin/edit-class', {
         title: 'Add Class',

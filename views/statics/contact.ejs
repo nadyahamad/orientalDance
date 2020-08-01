@@ -4,46 +4,38 @@
     <%- include('../partials/header.ejs') %>
     <main class="content">
 		<h1 class="tex-center"> <%= title %> </h1>
-		<section class="container">
-			<div class="col-11 col-lg-6">
-                <address class="location">
-                    Quimbaya, vereda La Granja Km. 1;<br>
-                    Carretera antigua v&iacute;a Quimbaya - Montenegro<br>
-                    Quind&iacute;o, Colombia.<br><br>
-                    <abbr title="Phone">Phone:</abbr> (057) 3104226335<br>
-                </address>
-                <div class="map">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497.88773279951056!2d-6.266047070760482!3d53.33580789874854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e9fdd990767%3A0xe1365f45a2bdcd95!2sCamden%20PT!5e1!3m2!1sen!2sie!4v1596056031694!5m2!1sen!2sie" width="100%" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                </div>
+		<section class="card-container ">
+			<div class="location col-5 col-s-8">     
+				<p class="text-location">
+					Camden St<br>
+                    Dublin 02<br>
+                    Ireland<br><br>
+                    <abbr title="Phone">Phone:</abbr> (353) 0804226335<br>
+				</p>
             </div>
+			<div class="map">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497.88773279951056!2d-6.266047070760482!3d53.33580789874854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e9fdd990767%3A0xe1365f45a2bdcd95!2sCamden%20PT!5e1!3m2!1sen!2sie!4v1596056031694!5m2!1sen!2sie" width="100%" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+			</div>
 		</section>
-		<section class="container mt-2 mb-1 border">
+		<section class="container mt-2 mb-1">
 			<!--Contact Form -->
 			<div class="col-7 col-s-10 signin-form">
-				<form id= "contact"
-					  name ="contact" 
-					  action ="https://formspree.io/x19171544@student.ncirl.ie"
-					  method="POST">
-			  
-					<label>
-						Subject
-						<input type= "text" name ="subject" placeholder="Message subject.." class ="subject"/>
-					</label>
-			
-					<label>
-						E-mail
-						<input type= "email" name ="email" placeholder="Your email.." class ="email"/>
-					</label>
-					
-					<label>
-						Message
-						<textarea name ="message"  placeholder="Write something.." style="height:150px" class ="message"></textarea>
-					</label>
-		
-					<div class="status">
+				<form method="POST" action='/contact'>
+					<div class="padding-1">
+						<label>Subject</label>
+						<input type="text" name="subject" id="subject" placeholder="Subject" class ="form-inputs"/>
 					</div>
-					<input type="submit" value="Send" class= "submit">
-			 
+					<div class="padding-1">
+						<label for="email-contact">Email</label>
+						<input type="email-contact" name="email-contact"  id="email-contact" placeholder="Email" class="form-inputs" />
+					</div>
+					<div class="padding-1">
+						<label for="message">Your Message</label>
+						<textarea name="message"  rows="5" id="message" class ="form-inputs"></textarea>
+					</div>
+					<div class="padding-1 container">
+						<button class="large-btn" type="submit">Send a Message</button>
+					</div>
 				</form>
 			</div>
 		</section>
