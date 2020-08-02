@@ -7,11 +7,11 @@
             <section class="container mt-2 mb-1">
                     <!-- form card-->
                     <div class="col-7 col-s-10 signin-form" >
-                        <h1 class="tex-center"> Login </h1>
+                        <h1 class="tex-center"> <%= title %> </h1>
                         <p class="text-center ml-2"> Please enter your details </p>
                         <!-- form Login -->
                         <% if (errorMessage) { %>
-                            <div><%= errorMessage %></div>
+                            <div class="user-message user-message--error" ><%= errorMessage %></div>
                         <% } %>
                         <form method="POST" action='/login'>
                             <div class="padding-1">
@@ -31,6 +31,9 @@
                         <p class="text-center bottom-dotted" >Don't have an account?  
                             <a href="/signup" class="login"> Register here</a>
                         </p> 
+                        <p class="text-center bottom-dotted" >
+                            <a href="/reset" class="login"> Reset Password </a>
+                        </p>
                     </div>
                     <!-- form card -->
                 </div>
