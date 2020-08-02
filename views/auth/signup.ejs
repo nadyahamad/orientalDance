@@ -8,6 +8,9 @@
                     <div class="col-7 col-s-10 signin-form" >
                         <h1 class="tex-center"> Create an Account </h1>
                         <p class="text-center ml-2"> Please enter your details </p>
+                        <% if (errorMessage) { %>
+                            <div class="user-message user-message--error" ><%= errorMessage %></div>
+                        <% } %>
                         <!-- form -->
                         <form class="login-form" action="/signup" method="POST">
                             <div class="padding-1">

@@ -86,3 +86,20 @@ input[type=text], select {
 	box-sizing: border-box;
 	color: #42004E;
 }
+
+.user-message {
+  margin: auto;
+  width: 90%;
+  border: 1px solid  #FCEBFF;
+  padding: 0.5rem;
+  border-radius: 3px;
+  background-color: #FCEBFF;
+  text-align: center;
+  color: #42004E;
+}
+
+.user-message--error {
+  border-color: none;
+  background-color: rgba(164, 59, 59, 1);
+  color: #FCEBFF;
+}
