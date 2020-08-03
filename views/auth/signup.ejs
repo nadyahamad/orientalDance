@@ -12,30 +12,72 @@
                             <div class="user-message user-message--error" ><%= errorMessage %></div>
                         <% } %>
                         <!-- form -->
-                        <form class="login-form" action="/signup" method="POST">
+                        <form class="login-form" action="/signup" method="POST" novalidate>
                             <div class="padding-1">
                                 <label>Username</label>
-                                <input type="text" name="username" id="username" placeholder="Username" class ="form-inputs"/>
+                                <input 
+                                type="text" 
+                                name="username" 
+                                id="username" 
+                                placeholder="Username" 
+                                class ="<%= validationErrors.find(e => e.param === 'username') ? 'invalid' : '' %> form-inputs" 
+                                value="<%= oldInput.username %>"
+                                />
                             </div>
                             <div class="padding-1">
                                 <label>Full Name</label>
-                                <input type="text" name="full_name" id="full_name"  placeholder="Full Name" class ="form-inputs"/>
+                                <input 
+                                    type="text" 
+                                    name="full_name" 
+                                    id="full_name"  
+                                    placeholder="Full Name" 
+                                    class ="<%= validationErrors.find(e => e.param === 'full_name') ? 'invalid' : '' %> form-inputs" 
+                                    value="<%= oldInput.full_name %>"
+                                />
                             </div>
                             <div class="padding-1">
                                 <label>Email</label>
-                                <input type="email" name="email" id="email" placeholder="Email" class ="form-inputs"/>
+                                <input 
+                                    type="email" 
+                                    name="email" 
+                                    id="email" 
+                                    placeholder="Email" 
+                                    class ="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %> form-inputs" 
+                                    value="<%= oldInput.email %>"
+                                />
                             </div>
                             <div class="padding-1">
                                 <label>Phone</label>
-                                <input type="text" name="phone" id="phone" placeholder="Phone" class ="form-inputs"/>
+                                <input 
+                                type="text" 
+                                name="phone" 
+                                id="phone" 
+                                placeholder="Phone" 
+                                class ="<%= validationErrors.find(e => e.param === 'phone') ? 'invalid' : '' %> form-inputs" 
+                                value="<%= oldInput.phone %>"/>
                             </div>
                             <div class="padding-1">
                                 <label>Password</label>
-                                <input type="password" name="password" id="password" placeholder="Password" class ="form-inputs" autocomplete required/>
+                                <input 
+                                    type="password" 
+                                    name="password" 
+                                    id="password" 
+                                    placeholder="Password" 
+                                    class ="<%= validationErrors.find(e => e.param === 'password') ? 'invalid' : '' %> form-inputs" 
+                                    autocomplete required 
+                                    value="<%= oldInput.password %>"
+                                />
                             </div>
                             <div class="padding-1">
                                 <label>Confirm Password</label>
-                                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" class ="form-inputs" autocomplete required/>
+                                <input 
+                                type="password" 
+                                name="confirmPassword" 
+                                id="confirmPassword" 
+                                placeholder="Confirm Password" 
+                                class ="<%= validationErrors.find(e => e.param === 'confirmPassword') ? 'invalid' : '' %> form-inputs" 
+                                autocomplete required 
+                                value="<%= oldInput.confirmPassword %>"/>
                             </div>
                             <div class="padding-1 container">
                                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
