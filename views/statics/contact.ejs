@@ -20,21 +20,29 @@
 		<section class="container mt-2 mb-1">
 			<!--Contact Form -->
 			<div class="col-7 col-s-10 signin-form">
-				<form method="POST" action='/contact'>
+				<form id="buttonhold">
 					<div class="padding-1">
+						<!-- Subject -->
 						<label>Subject</label>
 						<input type="text" name="subject" id="subject" placeholder="Subject" class ="form-inputs"/>
+						<p id="alert1" class=""> </p>
 					</div>
+					<!-- Subject -->
+                    <!-- Email -->
 					<div class="padding-1">
-						<label for="email-contact">Email</label>
-						<input type="email-contact" name="email-contact"  id="email-contact" placeholder="Email" class="form-inputs" />
+						<label for="Email">Email</label>
+						<input type="email" name="email"  id="email" placeholder="Email" class="form-inputs" />
+						<p id="alert2" class="alertx"></p>
 					</div>
+					<!-- Email -->
+                    <!-- Message -->
 					<div class="padding-1">
 						<label for="message">Your Message</label>
 						<textarea name="message"  rows="5" id="message" class ="form-inputs"></textarea>
+						<p id="alert3" class="alertx"></p>
 					</div>
 					<div class="padding-1 container">
-						<button class="large-btn" type="submit">Send a Message</button>
+						<button class="large-btn" type="button" onclick="contactForm()">Send a Message</button>
 					</div>
 				</form>
 			</div>

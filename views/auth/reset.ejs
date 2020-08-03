@@ -6,14 +6,14 @@
             <!-- tabs -->
             <section class="container mt-2 mb-1">
                     <!-- form card-->
-                    <div class="col-7 col-s-10 signin-form" >
+                    <div class="col-7 col-s-10 signin-form" novalidate>
                         <h1 class="tex-center"> <%= title %> </h1>
                         <p class="text-center ml-2"> Please enter your details </p>
                         <!-- form Login -->
                         <% if (errorMessage) { %>
                             <div class="user-message user-message--error" ><%= errorMessage %></div>
                         <% } %>
-                        <form method="POST" action='/reset'>
+                        <form method="POST" action='/reset' novalidate>
                             <div class="padding-1">
                                 <label for="email">Email</label>
                                 <input type="email" name="email"  id="email" placeholder="email" class="form-inputs" />

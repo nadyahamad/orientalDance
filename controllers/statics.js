@@ -1,3 +1,8 @@
+// const nodemailer = require('nodemailer');
+// const sendgridTransport = require('nodemailer-sendgrid-transport');
+// const { validationResult } = require('express-validator');
+
+
 // /index => GET
 exports.getIndex = (req, res, next) => {
     res.render(
