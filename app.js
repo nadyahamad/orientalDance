@@ -10,14 +10,14 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
 //const helmet = require('helmet');
-//const compression = require('compression');
+const compression = require('compression');
 //const morgan = require('morgan');
 
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
-console.log(process.env.NODE_ENV);
+//console.log(process.env.NODE_ENV);
 
 const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${
   process.env.MONGO_PASSWORD
@@ -41,13 +41,13 @@ const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const classesRoutes = require('./routes/classes');
 
-const accessLogStream = fs.createWriteStream(
-  path.join(__dirname, 'access.log'),
-  { flags: 'a' }
-);
+// const accessLogStream = fs.createWriteStream(
+//   path.join(__dirname, 'access.log'),
+//   { flags: 'a' }
+// );
 
 //app.use(helmet());
-//app.use(compression());
+app.use(compression());
 //app.use(morgan('combined', { stream: accessLogStream }));
 
 app.use(bodyParser.urlencoded({extended: false}));
