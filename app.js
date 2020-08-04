@@ -9,9 +9,9 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
-const helmet = require('helmet');
-const compression = require('compression');
-const morgan = require('morgan');
+//const helmet = require('helmet');
+//const compression = require('compression');
+//const morgan = require('morgan');
 
 
 const errorController = require('./controllers/error');
@@ -46,9 +46,9 @@ const accessLogStream = fs.createWriteStream(
   { flags: 'a' }
 );
 
-app.use(helmet());
-app.use(compression());
-app.use(morgan('combined', { stream: accessLogStream }));
+//app.use(helmet());
+//app.use(compression());
+//app.use(morgan('combined', { stream: accessLogStream }));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
