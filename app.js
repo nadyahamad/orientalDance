@@ -1,4 +1,6 @@
 const path= require('path');
+const fs = require('fs');
+const https = require('https');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -7,13 +9,19 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
+//const helmet = require('helmet');
+//const compression = require('compression');
+//const morgan = require('morgan');
 
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
-const MONGODB_URI =
-  'mongodb+srv://nahamad:Y1mb4c4T4b0g0@cluster0.3pcv2.mongodb.net/ORIENTALDANCE';
+console.log(process.env.NODE_ENV);
+
+const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${
+  process.env.MONGO_PASSWORD
+}@cluster0.3pcv2.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`;
 
 const app = express();
 const store = new MongoDBStore({
@@ -33,8 +41,14 @@ const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const classesRoutes = require('./routes/classes');
 
+const accessLogStream = fs.createWriteStream(
+  path.join(__dirname, 'access.log'),
+  { flags: 'a' }
+);
 
-
+//app.use(helmet());
+//app.use(compression());
+//app.use(morgan('combined', { stream: accessLogStream }));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -80,7 +94,7 @@ app.use(authRoutes);
   mongoose
   .connect(MONGODB_URI)
   .then(result => {
-    app.listen(3300);
+    app.listen(process.env.PORT || 3300);
   })
   .catch(err => {
     console.log(err);

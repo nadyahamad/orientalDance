@@ -1,0 +1,8 @@
+
+{
+    "env": {
+        "MONGO_USER": "nahamad",
+        "MONGO_PASSWORD": "Y1mb4c4T4b0g0",
+        "MONGO_DEFAULT_DATABASE": "ORIENTALDANCE"
+    }
+}
