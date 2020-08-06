@@ -6,6 +6,7 @@ const router = express.Router();
 
 
 router.get('/', staticsControllers.getIndex);
+router.get('/landing', staticsControllers.getLanding);
 router.get('/contact_us', staticsControllers.getContact);
 router.get('/contact_us', staticsControllers.getContact);
 

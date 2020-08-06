@@ -1,6 +1,7 @@
 // const nodemailer = require('nodemailer');
 // const sendgridTransport = require('nodemailer-sendgrid-transport');
-// const { validationResult } = require('express-validator');
+const { validationResult } = require('express-validator');
+const User = require('../models/user');
 
 
 // /index => GET
@@ -11,6 +12,22 @@ exports.getIndex = (req, res, next) => {
         path: '/',
     });
 };
+
+// /admin/add-class => GET
+exports.getLanding = (req, res, next) => {
+    User.find({ userId: req.user._id })
+  // .select('title price -_id')
+  // .populate('userId', 'name')
+    .then(user => {
+      res.render('statics/landing', {
+        user: user,
+        title: req.user.full_name,
+        path: '/landing'
+      });
+    })
+    .catch(err => console.log(err));
+};
+  
 
 
 // /index => GET

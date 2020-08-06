@@ -45,7 +45,10 @@
                     </li>
                     <% if (isAuthenticated) { %>
                     <li class="">
-                        <a class="<%= path === '/admin/admin-landing' ? 'active-cart' : '' %> material-icons cart-icon" href="/admin/admin-landing">account_circle</a>
+                        <a class="<%= path === '/' ? 'active-cart' : '' %> material-icons cart-icon" href="/landing">account_circle</a>
+                    </li> 
+                    <li class="">
+                        <a class="<%= path === '/admin/classes-list' ? 'active-cart' : '' %> material-icons cart-icon" href="/admin/classes-list">admin_panel_settings</a>
                     </li> 
                     <li>
                         <a class="<%= path === '/booking-cart' ? 'active-cart' : '' %>  material-icons cart-icon" href="/booking-cart">shopping_cart</a>

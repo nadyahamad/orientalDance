@@ -3,17 +3,20 @@
 <body>
   <%- include('../partials/header.ejs') %>
   <main class="content">
+	
 		<h1 class="tex-center"> Admin Dashboard </h1>
 		<!-- form card -->
+		
 		<section class="card-container mt-2 mb-1">
 			<!-- Admin classes-->
+			<% if (isAuthenticated) { %>
 			<div class="admin-card col-3">
 				<i class="material-icons card-icon">today</i>
-				<% if (isAuthenticated) { %>
+				
 				<a href="/admin/classes-list" class="<%= path === '/admin/classes-list' ? 'active' : '' %>  btn-card" role="button" aria-pressed="true">
 					Manage Dance Classes
 				</a>
-				<% } %>
+				
 			</div>
 			<!-- Admin studios 
 			<div class="admin-card col-3">
@@ -52,7 +55,6 @@
 				</div> -->
 	
 			</div>
-	
 			
 		</section>
 		<!-- form card -->

@@ -1,0 +1,23 @@
+<%- include('../partials/head.ejs') %>
+</head>
+<body>
+  <%- include('../partials/header.ejs') %>
+  <main class="content">
+		<div class="pt-1">
+			<h1 class="yellow-bg text-center pt-1"> Welcome <%= title %> </h1>
+		</div>
+		<!-- form card -->
+		<section class="card-container mt-2 mb-1">
+			<div class="admin-card col-3">
+				<i class="material-icons card-icon">assignment</i>
+				<a href="/bookings" class="btn-card" role="button" aria-pressed="true">
+					My Bookings
+				</a>
+			</div>
+		</section>
+		<!-- form card -->
+	</main>
+  <%- include('../partials/footer.ejs') %>
+  <%- include('../partials/end.ejs') %>
+</body>
+</html>

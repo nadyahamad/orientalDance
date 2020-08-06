@@ -70,8 +70,18 @@
 					</button>
 					<input type="hidden" name="productId" value="<%= product._id %>">
 				</form>
-				<% } %>
 			</div>
+			<% } else { %>
+				<div class="signin-form" > 
+					<h2 class="text-center">To get access to this content, you'll need to sign up.</h2>
+					<p class="text-center" >Don't have an account?  
+						<a href="/signup" class="login"> Register here</a>
+					</p>
+					<p class="text-center" >Already have an account? 
+						<a href="/login" class="login"> Log in</a>
+					</p>
+				</div>
+			<% } %>
 		</section>
 		<!-- class info -->
 	</main>

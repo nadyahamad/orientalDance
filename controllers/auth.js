@@ -99,7 +99,7 @@ exports.postLogin = (req, res, next) => {
           req.session.user = user;
           return req.session.save(err => {
             console.log(err);
-            res.redirect('/admin/admin-landing');
+            res.redirect('/classes');
           });
         }
         return res.status(422).render('auth/login', {
@@ -161,7 +161,7 @@ exports.postLogin = (req, res, next) => {
         return user.save();
       })
       .then(result => {
-        res.redirect('/login');
+        res.redirect('/classes');
         // return transporter.sendMail({
         //   to: email,
         //   from: 'x19152710@student.ncirl.ie',
