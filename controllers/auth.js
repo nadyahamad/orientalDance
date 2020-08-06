@@ -99,7 +99,7 @@ exports.postLogin = (req, res, next) => {
           req.session.user = user;
           return req.session.save(err => {
             console.log(err);
-            res.redirect('/landing');
+            res.redirect('/classes');
           });
         }
         return res.status(422).render('auth/login', {
